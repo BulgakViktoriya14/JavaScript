@@ -1,0 +1,28 @@
+#timer{
+	margin-top:5%;
+	text-align: center;
+}
+#timer p{
+	font-size: 50px;
+}
+#window{
+	border: 3px solid #75006f;
+	width: 30%;
+	border-radius: 5px;
+	margin-bottom: 5%;
+	background-color: #f792f4;
+	padding: 2%;
+	text-align: center;
+	height: auto; 
+	font-size: 20px;
+}
+td{
+	 text-align: center;
+	 border: 3px solid black;
+}
+table{
+	width: 100%;
+}
+table td img{
+	width: 100px;
+}
