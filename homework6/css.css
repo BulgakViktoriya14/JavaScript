@@ -1,0 +1,78 @@
+/*task1*/
+.content{
+	margin-top: 10%;
+	margin-left: 35%;
+}
+h2{
+	margin-top: 5%;
+}
+input{
+	height: 30px;
+}
+#t1, #t2{
+	width: 30%;
+}
+#but1, #but2{
+	border-radius: 4px;
+	border: 2px solid black;
+}
+
+
+/*task2*/
+#window>button{
+	border-radius: 5px;
+	border: 2px solid black;
+	background: black;
+	color:white;
+	position: absolute;
+	margin-top:-2.5%;
+	margin-left: 16%;
+}
+#window{
+	border: 3px solid #75006f;
+	width: 30%;
+	border-radius: 5px;
+	margin-bottom: 5%;
+	background-color: #f792f4;
+	padding: 2%;
+	text-align: center;
+	height: auto; 
+	font-size: 20px;
+}
+
+/*task5*/
+form{
+	width:30%;
+	margin-left: 35%;
+	font-size: 25px;
+}
+label{
+	width: 100%;
+	padding-top: 5%;
+	float: left;
+	display: block;
+}
+label>input{
+	float: right;
+	margin-left: 0%;
+	border-radius: 4px;
+}
+#but{
+	margin-top: 5%;
+	border-radius: 4px;
+	border: 2px solid black;
+	margin-left: 20%;
+	height: 50px;
+	width: 250px;
+	font-size: 20px;
+}
+h1{
+	text-align: center;
+	margin-top: 5%;
+}
+.error{
+	border:5px solid red;
+}
+.well{
+	border:5px solid green;
+}
