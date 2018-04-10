@@ -10,7 +10,7 @@ var table="<table><tr><td >Описание поля</td><td>Результат<
 			"<tr><td>Высота экрана</td><td>"+screen.height+"</td></tr>"+
 			"<tr><td>Глубина цветопередачи</td><td>"+screen.colorDepth+"</td></tr>"+
 			"<tr><td>Полезная ширина</td><td>"+screen.availWidth+"</td></tr>"+
-			"<tr><td>Полезная высота</td><td>"+screen.availHieght+"</td></tr>"+
+			"<tr><td>Полезная высота</td><td>"+screen.availHeight+"</td></tr>"+
 			"<tr><td>Ориентация экрана</td><td>"+screen.orientation+"</td></tr>"+
 			"<tr><td>Кодовое имя браузера</td><td>"+navigator.appCodeName+"</td></tr>"+
 			"<tr><td>Название браузера</td><td>"+navigator.appName+"</td></tr>"+
