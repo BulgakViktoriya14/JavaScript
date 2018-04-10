@@ -1,7 +1,11 @@
 //Задание №1. Вывести сколько минут осталось доконца дня.
 var now = new Date();
-var tomorrow = new Date(now.getFullYear(), now.getMonth(), now.getDate()+1);
-var d =parseInt((tomorrow - now)/60000);
+var h= now.getHours();
+var m= now.getMinutes();
+var s= now.getSeconds();
+var hh = (23-h)*60;
+var mm =(60-m);
+var d =hh+mm;
 alert("До конца дня осталось: "+d+ " минут ");
 
 
