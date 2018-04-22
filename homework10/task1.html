@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS курсы</title>
+	<style type="text/css">
+	button{
+		margin-left: 4%;
+		margin-top: 1%;
+		border-radius: 5px;
+		border:2px solid black;
+		background-color: white;
+		color:black;
+		outline: none;
+	}
+	input{
+		border-radius: 5px;
+		border:2px solid black;
+		margin-left: 4%;
+		margin-top: 2%;
+		margin-bottom: 5%;
+		outline: none;
+	}
+	img{
+		width: 50%;
+	}
+	.active{
+		border:2px solid red;
+	}
+	</style>
+</head>
+<body>
+<div class="buttons">
+	<button type="button" id="bold">Жирный шрифт</button>
+	<button type="button" id="italics">Курсивный шрифт</button>
+	<button type="button" id="underline">Подчёркнутый шрифт</button>
+	<button type="button" id="indent">Отступ</button>
+	<button type="button" id="createlink">Создать ссылку</button>
+	<button type="button" id="deletelink">Удалить ссылку</button>
+	<button type="button" id="addimage">Добавить картинку</button>
+	<button type="button" id="delete">Удалить выделенное</button>
+	<input type="text" placeholder="Цвет шрифта" id="color">
+		<select id="colortext">
+			<option value="black">black</option>
+		 	<option value="red">red</option>
+ 			<option value="blue">blue</option>
+ 			<option value="green">green</option>
+		</select>
+	<input type="text" placeholder="Размер шрифта" id="size">
+		<select id="sizetext">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3" selected>3</option>
+		 	<option value="4">4</option>
+ 			<option value="5">5</option>
+ 			<option value="6">6</option>
+ 			<option value="7">7</option>
+		</select>
+	<input type="text" placeholder="Цвет фона" id="ground">
+		<select id="background">
+			<option value="white">white</option>
+		 	<option value="yellow">yellow</option>
+ 			<option value="blue">blue</option>
+ 			<option value="green">green</option>
+ 		</select>
+	<input type="text" id="font" placeholder="Шрифт">
+		<select id="fonttext">
+			<option value="Times">Times</option>
+		 	<option value="Arial">Arial</option>
+ 			<option value="Verdana">Verdana</option>
+		</select>
+</div>
+	<div contenteditable="true" id="text">
+	Лондон — столица Соединённого Королевства Великобритании и Северной Ирландии, крупнейший город на Британских островах. Город был основан в 43 году н. э., во время вторжения в Британию римлян во главе с императором Клавдием. Современное название города происходит от римского «Лондиниум». В саксонскую эпоху Лондон утратил всякое значение. Однако в 884 году Альфред Великий сделал город своей столицей.Страшная чума 1665 года унесла жизни 70 000 лондонцев, а спустя год страшный пожар обратил в пепел и золу 4/5 зданий города. По проектам гениального архитектора Кристофера Рена вскоре были построены собор св. Павла и полсотни городских церквей. Век спустя отцы города решили снести последние остатки городской стены, мешавшие Лондону расти и развиваться. Грандиозная всемирная выставка 1851 года в Кристаль Палас продемонстрировала всему миру богатство и могущество Британской империи. В то время число жителей Лондона перевалило за 1 миллион. Сегодня население Лондона с пригородами превышает 12 миллионов человек, и столица Великобритании считается одним из крупнейших городов мира.Лондон - это город замечательных исторических памятников и превосходных архитектурных ансамблей, музеев мирового значения и великолепных картинных галерей, город живописных пригородов и обширных тенистых парков.Как культурный центр Лондон приобрел известность своими богатейшими музеями и художественными галереями, театрами и музыкальной жизнью. Город известен также многочисленными старинными церквями, в которых хранятся национальные святыни английского народа.
+	</div>
+	<script type="text/javascript" src="task1.js"></script>
+</body>
+</html>
