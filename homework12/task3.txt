@@ -1,0 +1,143 @@
+<div class="news">
+		<h2>News 1</h2>
+		<p>short description</p>
+		<img src="img/1.jpg">
+		<p>10.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 2</h2>
+		<p>short description</p>
+		<img src="img/2.jpg">
+		<p>11.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 3</h2>
+		<p>short description</p>
+		<img src="img/3.jpg">
+		<p>11.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 4</h2>
+		<p>short description</p>
+		<img src="img/4.jpg">
+		<p>12.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 5</h2>
+		<p>short description</p>
+		<img src="img/5.jpg">
+		<p>12.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 6</h2>
+		<p>short description</p>
+		<img src="img/6.jpg">
+		<p>12.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 7</h2>
+		<p>short description</p>
+		<img src="img/7.jpg">
+		<p>13.04.2018</p>
+	</div>
+	<div class="news">
+		<h2>News 8</h2>
+		<p>short description</p>
+		<img src="img/8.jpg">
+		<p>13.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 9</h2>
+		<p>short description</p>
+		<img src="img/9.jpg">
+		<p>14.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 10</h2>
+		<p>short description</p>
+		<img src="img/10.jpg">
+		<p>14.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 11</h2>
+		<p>short description</p>
+		<img src="img/11.jpg">
+		<p>14.04.2018</p>
+	</div>
+	<div class="news">
+		<h2>News 12</h2>
+		<p>short description</p>
+		<img src="img/12.jpg">
+		<p>15.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 13</h2>
+		<p>short description</p>
+		<img src="img/13.jpg">
+		<p>15.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 14</h2>
+		<p>short description</p>
+		<img src="img/14.jpg">
+		<p>19.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 15</h2>
+		<p>short description</p>
+		<img src="img/15.jpg">
+		<p>19.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 16</h2>
+		<p>short description</p>
+		<img src="img/16.jpg">
+		<p>19.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 17</h2>
+		<p>short description</p>
+		<img src="img/17.jpg">
+		<p>20.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 18</h2>
+		<p>short description</p>
+		<img src="img/18.jpg">
+		<p>21.04.2018</p>
+	</div>	<div class="news">
+		<h2>News 19</h2>
+		<p>short description</p>
+		<img src="img/19.jpg">
+		<p>21.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 20</h2>
+		<p>short description</p>
+		<img src="img/20.jpg">
+		<p>22.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 21</h2>
+		<p>short description</p>
+		<img src="img/21.jpg">
+		<p>24.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 22</h2>
+		<p>short description</p>
+		<img src="img/22.jpg">
+		<p>24.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 23</h2>
+		<p>short description</p>
+		<img src="img/23.jpg">
+		<p>25.04.2018</p>
+	</div>
+		<div class="news">
+		<h2>News 24</h2>
+		<p>short description</p>
+		<img src="img/24.jpg">
+		<p>25.04.2018</p>
+	</div>
