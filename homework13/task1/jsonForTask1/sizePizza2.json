@@ -1,0 +1,15 @@
+[{
+	"type":"foodPrice",
+	"subcat":[{
+	"weight":"500 г",
+	"price":8
+},
+{
+	"weight":"800 г",
+	"price":13
+},
+{
+	"weight":"1100 г",
+	"price":19
+}]
+}]

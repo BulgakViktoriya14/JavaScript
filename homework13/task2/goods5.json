@@ -1,0 +1,19 @@
+[{
+"name":"Расчёска",
+"price":2,
+"country":"Китай",
+"image":"img/13.jpg"
+},
+{
+"name":"Хайлайтер",
+"price":6,
+"country":"Польша",
+"image":"img/14.jpg"
+},
+{
+"name":"Жидкость для снятия лака",
+"price":3,
+"country":"Россия",
+"image":"img/15.jpg"
+}
+]

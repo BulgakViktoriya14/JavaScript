@@ -1,0 +1,19 @@
+[{
+"name":"Подводка",
+"price":4,
+"country":"Россия",
+"image":"img/10.jpg"
+},
+{
+"name":"Пилочка для ногтей",
+"price":2,
+"country":"Китай",
+"image":"img/11.jpg"
+},
+{
+"name":"Тональник",
+"price":3,
+"country":"Россия",
+"image":"img/12.jpg"
+}
+]

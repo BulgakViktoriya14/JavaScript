@@ -1,0 +1,19 @@
+[{
+"name":"Помада",
+"price":7,
+"country":"Китай",
+"image":"img/7.jpg"
+},
+{
+"name":"Блеск для губ",
+"price":6,
+"country":"Китай",
+"image":"img/8.jpg"
+},
+{
+"name":"Крем для рук",
+"price":2,
+"country":"Россия",
+"image":"img/9.jpg"
+}
+]

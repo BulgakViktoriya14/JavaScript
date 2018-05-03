@@ -1,0 +1,13 @@
+[{
+"name":"Бургеры",
+"subcat":[{
+	"name": "Воппер",
+	"file": "jsonForTask1/burger1.json"},
+	{
+	"name": "Двойной чизбургер",
+	"file": "jsonForTask1/burger2.json"},
+	{
+	"name": "Биг Кинг",
+	"file": "jsonForTask1/burger3.json"}
+	]
+}]

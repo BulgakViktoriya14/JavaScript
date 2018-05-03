@@ -1,0 +1,13 @@
+[{
+"name":"Пицца",
+"subcat":[{
+	"name": "Пицца Гавайская",
+	"file": "jsonForTask1/pizza1.json"},
+	{
+	"name": "Пицца Пепперони",
+	"file": "jsonForTask1/pizza2.json"},
+	{
+	"name": "Пицца Четыре сезона",
+	"file": "jsonForTask1/pizza3.json"}
+	]
+}]

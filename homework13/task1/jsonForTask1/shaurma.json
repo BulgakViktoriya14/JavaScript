@@ -1,0 +1,13 @@
+[{
+"name":"Шаурма",
+"subcat":[{
+	"name": "Шаурма Стандарт",
+	"file": "jsonForTask1/shaurma1.json"},
+	{
+	"name": "Шаурма Чили",
+	"file": "jsonForTask1/shaurma2.json"},
+	{
+	"name": "Шаурма Королевская",
+	"file": "jsonForTask1/shaurma3.json"}
+	]
+}]

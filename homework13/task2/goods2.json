@@ -1,0 +1,19 @@
+[{
+"name":"Кисточка для пудры",
+"price":4,
+"country":"Россия",
+"image":"img/4.jpg"
+},
+{
+"name":"Карандаш для бровей",
+"price":3,
+"country":"Китай",
+"image":"img/5.jpg"
+},
+{
+"name":"Лак для ногтей",
+"price":2,
+"country":"Польша",
+"image":"img/6.jpg"
+}
+]
