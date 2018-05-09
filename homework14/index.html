@@ -4,10 +4,81 @@
 	<meta charset="UTF-8">
 	<title>JS курсы</title>
 	<style type="text/css">
-	
+	#list{
+		background-color:#fff87a;
+		width: 40%;
+		margin-top: 3%;
+		margin-right: 5%;
+		padding: 10px;
+		height: auto;
+		float: right;
+		text-align: center;
+		margin-bottom: 5%;
+	}
+	#plan{
+		background-color: #91ff9c;
+		width: 40%;
+		margin-top: 3%;
+		margin-left: 5%;
+		padding: 10px;
+		height: auto;
+		float: left;
+		text-align: center;
+	}
+	.divTask{
+		margin-top: 10px;
+		border: 2px solid black;
+	}
+	input{
+		width: 150px;
+	}
+	.delTaskPlan,.delTaskList{
+		margin-bottom: 10px;
+	}
+	.remove{
+		display: none;
+	}
+	#otherActions{
+		display: block;
+		background-color:#98e9f9;
+		width: 40%;
+		margin-top: 3%;
+		margin-right: 5%;
+		padding: 10px;
+		height: auto;
+		float: right;
+		margin-right: 5%;
+		text-align: center;
+	}
+	button{
+		margin-top: 1%;
+	}
 	</style>
 </head>
 <body>
+<div id="tasks">
+	<div id="plan">
+		<h1>План задач</h1>
+		<input type="text" id="titleP" placeholder="Задача">
+		<input type="text" id="priorityP" placeholder="Приоритет">
+		<input type="text" id="dateEndP" placeholder="Дата,время выполнения" pattern="2018-05-09 23:00:00">
+		<button id="butPlan">Добавить задачу</button>
+	</div>
+	<div id="list">
+		<h1>Спикок задач</h1>
+		<input type="text" id="titleL" placeholder="Задача">
+		<input type="text" id="priorityL" placeholder="Приоритет">
+		<button id="butList">Добавить задачу</button>
+	</div>
+	<div id="otherActions">
+		<button id="tasksToday">Задачи на сегодня</button>
+		<button id="tasksTomorrow">Задачи на завтра</button>
+		<button id="tasksPriority">План задач по приоритету</button>
+		<div id="actions">
+			
+		</div>
+	</div>
+</div>
 
 	<script type="text/javascript" src="script.js"></script>
 </body>

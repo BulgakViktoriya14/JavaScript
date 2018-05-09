@@ -1,3 +1,9 @@
+var plan=document.getElementById("plan");
+var list=document.getElementById("list");
+var allTasks=document.getElementById("tasks");
+var actions=document.getElementById("actions");
+
+
 class Task{
 	constructor(name,priority,dateEnd){
 		this.name=name;
@@ -6,112 +12,233 @@ class Task{
 	}
 }
 
-class TaskPlan extends Task{
-	constructor(name,priority,dateEnd,taskPlan){
-		super(name,priority,dateEnd);
+class TaskPlan{
+	constructor(...taskPlan){
+		this.taskPlan=taskPlan;
 	}
-	getTaskForToday(arr){
+	getTaskForToday(){
 		console.log("Список задач на сегодня: ");
 		var today=new Date();
-		var yToday= today.getFullYear();
-		var mToday= today.getMonth();
-		var dToday= today.getDate();
-		var iter = arr[Symbol.iterator]();
-		for(var j of arr){
+		var[yToday,mToday,dToday]=[today.getFullYear(),today.getMonth(),today.getDate()];
+		for(var j of this.taskPlan){
 			var date=new Date(j.dateEnd);
-			var y=date.getFullYear();
-			var m=date.getMonth();
-			var d=date.getDate();
+			var[y,m,d]=[date.getFullYear(),date.getMonth(),date.getDate()];
 			if(yToday==y && mToday==m && dToday==d){
+				taskOutputActions(j);
 				console.log("Задача: "+j.name+", приоритет "+j.priority+", время завершения задачи: "+j.dateEnd);
 			}
 		}
-		console.log(iter.next());
 	}
-	getTaskForTomorrow(arr){
+	getTaskForTomorrow(){
 		console.log("Список задач на завтра: ");
 		var tomorrow=new Date();
-		var yTomorrow= tomorrow.getFullYear();
-		var mTomorrow= tomorrow.getMonth();
-		var dTomorrow= tomorrow.getDate()+1;
-		var iter = arr[Symbol.iterator]();
-		for(var j of arr){
+		var[yTomorrow,mTomorrow,dTomorrow]=[tomorrow.getFullYear(),tomorrow.getMonth(),tomorrow.getDate()+1];
+		for(var j of this.taskPlan){
 			var date=new Date(j.dateEnd);
-			var y=date.getFullYear();
-			var m=date.getMonth();
-			var d=date.getDate();
+			var[y,m,d]=[date.getFullYear(),date.getMonth(),date.getDate()];
 			if(yTomorrow==y && mTomorrow==m && dTomorrow==d){
+				taskOutputActions(j);
 				console.log("Задача: "+j.name+", приоритет "+j.priority+", время завершения задачи: "+j.dateEnd);
 			}
 		}
-		console.log(iter.next());
 	}
-	addTask(name,priority,dateEnd){
-		var addTask=new Task(name,priority,dateEnd);
-		arr.push(addTask);	
-		console.log("Задача добавлена в список задач.");
+	addTaskInPlan(task){
+		this.taskPlan.push(task);	
+		taskOutputPlan(task);
+		console.log("Задача добавлена в план задач.");
 	}
-	addSeveralTasks(...newtasks){
-		for(var i=0; i<newtasks.length; i++){
-			var addTask=new Task(newtasks[i].name,newtasks[i].priority,newtasks[i].dateEnd);
-			arr.push(addTask);
+	addSeveralTasks(...tasks){
+		console.log(`Добавленно ${tasks.length} задач(и).`);
+		for(var i=0; i<tasks.length; i++){
+			this.taskPlan.push(tasks[i]);
+			taskOutputPlan(tasks[i]);
 		}
 		
 	}
-	deleteTask(arr){
-		console.log("Задача удалена из списка задач.");
-		var now=new Date();
-		var m=now.getTime();
-		var NewArr=arr;
-		for(var j=0; j<arr.length;j++){
-			var time=new Date(arr[j].dateEnd);
-			var mm=time.getTime();
-			if(mm<=m){
-				NewArr.splice(j, 1);
-				j=0;
-			}
-		}
-		console.log(arr);
+	deleteTaskInPlan(task){
+		console.log("Выбранная задача удалена из списка плана.");
+		this.taskPlan.splice(task, 1);
 	}
-	listPriority(arr){
+	listPriority(){
 		console.log("Список задач по приоритету: ");
 		var buff=0;
-		var iter = arr[Symbol.iterator]();
-		for(var i=0;i<arr.length; i++){
-			for(var j=0;j<arr.length-1; j++){
-				if(arr[j].priority>arr[j+1].priority){
-					buff=arr[j].priority;
-					arr[j].priority=arr[j+1].priority;
-					arr[j+1].priority=buff;
+		for(var i=0;i<this.taskPlan.length; i++){
+			for(var j=0;j<this.taskPlan.length-1; j++){
+				if(this.taskPlan[j].priority>this.taskPlan[j+1].priority){
+					buff=this.taskPlan[j].priority;
+					this.taskPlan[j].priority=this.taskPlan[j+1].priority;
+					this.taskPlan[j+1].priority=buff;
 				}
 			}
 		}
-		console.log(arr);
-		for(var j of arr){
+		console.log(this.taskPlan);
+		for(var j of this.taskPlan){
 			console.log("Задача: "+j.name+", приоритет "+j.priority+", время завершения задачи: "+j.dateEnd);
+			taskOutputActions(j);
 		}
-		console.log(iter.next());
+	}
+	[Symbol.iterator](){
+		var self=this;
+		console.log(self);
+		var iter={
+			next(){
+				let value=self.taskPlan[self.taskPlan.length-1];
+				let done=value>self.taskPlan.length-1;
+			}
+		}
+		return iter;
 	}
 }
-var arr=[];
-var task1=new Task("Погулять с собакой", 5,"2018-05-08 15:00:00");
-var task2=new Task("Сходить в кино",6, "2018-05-06 18:00:00");
-var task3=new Task("Сделать задание по проге",4,"2018-05-07 21:30:00");
-var arrCreateTask=[task1,task2,task3];
-var task=new TaskPlan();
-task.addTask("Сделать домашнее задание по курсам", 2 ,"2018-05-07 19:00:00");
-task.addTask("Помыть посуду",1,"2018-05-06 19:40:00");
-task.addTask("Сходить в магазин", 3, "2018-05-06 16:00:00");
-console.log(arr);
 
-console.log(`Добавленно ${arrCreateTask.length} задач(и).`);
-task.addSeveralTasks(...arrCreateTask);
-console.log(arr);
+class TaskList{
+	constructor(...taskList){
+		this.taskList=taskList;
+	}
+	addTaskInList(task){
+		this.taskList.push(task);	
+		taskOutputList(task);
+		console.log("Задача добавлена в план задач.");
+	}
+	addSeveralTasksInList(...tasks){
+		console.log(`Добавленно ${tasks.length} задач(и).`);
+		for(var i=0; i<tasks.length; i++){
+			this.taskList.push(tasks[i]);
+			taskOutputList(tasks[i]);
+		}
+		
+	}
+	deleteTaskInList(task){
+		console.log("Выбранная задача удалена из списка задач.");
+		this.taskList.splice(task, 1);
+	}
+}
 
-task.getTaskForToday(arr);
-task.getTaskForTomorrow(arr);
-task.listPriority(arr);
-//task.deleteTask(arr);  //удаление задач
+var arrPlan=new TaskPlan();
+var arrList=new TaskList();
 
+function ajaxGet(path){
+	var promise=new Promise(function(resolve,reject){
+		var xhr = new XMLHttpRequest; 
+		xhr.open("GET", path, true); 
+		xhr.onload = function(){ 
+			resolve(xhr.responseText); 
+		} 
+		xhr.onerror=function(){
+			reject(xhr.responseText);
+		}
+		xhr.send(null); 
+	})
+	return promise;
+}
+ajaxGet("json.json").then(function(text){ 
+	var json=JSON.parse(text);
+	console.log(json.length);
+	var setList=new Set();
+	var setPlan=new Set();
+	for(var i=0; i<json.length;i++){
+		var task=new Task(json[i].name,json[i].priority,json[i].dateEnd);
+		if(json[i].dateEnd==null){
+			setList.add(task);
+		}
+		else{
+			setPlan.add(task);
+		}
+	}
+	
+	arrPlan.addSeveralTasks(...setPlan);
+	console.log(arrPlan);
+	arrList.addSeveralTasksInList(...setList);
+	console.log(arrList);
+	
+	allTasks.addEventListener("click",function(e){
+		if(e.target.getAttribute("class")=="delTaskPlan"){
+			arrPlan.deleteTaskInPlan(e.target.getAttribute("id"));
+			e.target.parentNode.classList.add("remove");
+		}
+		if(e.target.getAttribute("class")=="delTaskList"){
+			arrList.deleteTaskInList(e.target.getAttribute("id"));
+			e.target.parentNode.classList.add("remove");
+		}
+		if(e.target.getAttribute("id")=="butPlan"){
+			let titleP=document.getElementById("titleP");
+			let priorityP=document.getElementById("priorityP");
+			let dateEndP=document.getElementById("dateEndP");
+			let newTask=new Task(titleP.value,priorityP.value,dateEndP.value);
+			arrPlan.addTaskInPlan(newTask);
+		}
+		if(e.target.getAttribute("id")=="butList"){
+			let titleL=document.getElementById("titleL");
+			let priorityL=document.getElementById("priorityL");
+			let newTask=new Task(titleL.value,priorityL.value,null);
+			arrList.addTaskInList(newTask);
+		}
+		if(e.target.getAttribute("id")=="tasksToday"){
+			actions.innerHTML="";
+			arrPlan.getTaskForToday();
+		}
+		if(e.target.getAttribute("id")=="tasksTomorrow"){
+			actions.innerHTML="";
+			arrPlan.getTaskForTomorrow();
+		}
+		if(e.target.getAttribute("id")=="tasksPriority"){
+			actions.innerHTML="";
+			arrPlan.listPriority();
+		}
+	})
+},err=>console.error(err));
 
+function taskOutputActions(task){
+	let divTask=document.createElement("div");
+	divTask.setAttribute("class","divTask");
+	actions.appendChild(divTask);
+	let title=document.createElement("h3");
+	title.innerText=task.name;
+	divTask.appendChild(title);
+	let prior=document.createElement("h4");
+	prior.innerText="Приоритет: "+task.priority;
+	divTask.appendChild(prior);
+	let end=document.createElement("h5");
+	end.innerText=task.dateEnd;
+	divTask.appendChild(end);
+	let but=document.createElement("button");
+	but.setAttribute("class","delTaskPlan");
+	but.innerText="Удалить задачу";
+	but.setAttribute("id",task);
+	divTask.appendChild(but);
+}
 
+function taskOutputPlan(task){
+	let divTask=document.createElement("div");
+	divTask.setAttribute("class","divTask");
+	plan.appendChild(divTask);
+	let title=document.createElement("h3");
+	title.innerText=task.name;
+	divTask.appendChild(title);
+	let prior=document.createElement("h4");
+	prior.innerText="Приоритет: "+task.priority;
+	divTask.appendChild(prior);
+	let end=document.createElement("h5");
+	end.innerText=task.dateEnd;
+	divTask.appendChild(end);
+	let but=document.createElement("button");
+	but.setAttribute("class","delTaskPlan");
+	but.innerText="Удалить задачу";
+	but.setAttribute("id",task);
+	divTask.appendChild(but);
+}
+function taskOutputList(task){
+	let divTask=document.createElement("div");
+	divTask.setAttribute("class","divTask");
+	list.appendChild(divTask);
+	let title=document.createElement("h3");
+	title.innerText=task.name;
+	divTask.appendChild(title);
+	let prior=document.createElement("h4");
+	prior.innerText="Приоритет: "+task.priority;
+	divTask.appendChild(prior);
+	let but=document.createElement("button");
+	but.setAttribute("class","delTaskList");
+	but.innerText="Удалить задачу";
+	but.setAttribute("id",task);
+	divTask.appendChild(but);
+}
