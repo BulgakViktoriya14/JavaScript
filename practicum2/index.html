@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS курсы</title>
+	<style type="text/css">
+	#contener{
+		padding: 50px;
+		margin-top: 20px;
+		margin-left: 1%;
+		width: 90%;
+		height: auto;
+		border: 2px solid black;
+		border-radius: 5px;
+	}
+	a{
+		font-size: x-large;
+		margin-left: 60px;
+		color: black;
+	}
+	.active{
+		color: red;
+	}
+	h4{
+		display: inline-block;
+		margin-top:0;
+		margin-bottom: 0;
+		padding-right: 5px;
+	}
+	.imgThings{
+		float: left;
+		margin-right: 5%;
+	}
+	.divThing{
+		margin-top: 5%;
+	}
+	.butAdd{
+		font-size: x-large;
+		text-align: center;
+		width: 30px;
+		height: 30px;
+	}
+	input{
+		font-size: x-large;
+		text-align: center;
+		margin-top:0%;
+		width: 30px;
+		border: none;
+	}
+	.butBooking{
+		padding: 5px;
+		margin-left: 3%;
+	}
+	.noActive{
+		display: none;
+	}
+	.chooseColor p{
+		display: inline-block;
+		margin-left: 25px;
+	}
+	.chooseColor{
+		margin-top: 20px;
+		
+	}
+
+	</style>
+</head>
+<body>
+	<a href="#shirts">Рубашки</a>
+	<a href="#dresses">Платья</a>
+	<a href="#trousers">Брюки</a>
+	<a href="#basket">Корзина</a>
+	<div id="contener"></div>
+	<div id="cart" class="noActive" >
+		<h2>Корзина</h2>
+		К оплате: 
+		<h4>0</h4>
+		<h4>p</h4>
+		<p>Покупки:</p>
+		<div id="buyThing"></div>
+	</div>
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

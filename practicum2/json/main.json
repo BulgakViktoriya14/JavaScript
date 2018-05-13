@@ -1,0 +1,17 @@
+[
+	{
+		"name":"shirts",
+		"hash":"#shirts",
+		"urlGoods":"json/shirts.json"
+	},
+	{
+		"name":"dresses",
+		"hash":"#dresses",
+		"urlGoods":"json/dresses.json"
+	},
+	{
+		"name":"trousers",
+		"hash":"#trousers",
+		"urlGoods":"json/trousers.json"
+	}
+]

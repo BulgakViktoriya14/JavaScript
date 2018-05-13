@@ -1,0 +1,44 @@
+[
+	{
+		"title":"Брюки Finn Flare",
+		"picture":"img/trousers1.jpg",
+		"discription":"Состав: полиэстер 95%,эластан 5%",
+		"price":60,
+		"subcat":[{
+			"colorName":"Коричневые",
+			"price":60,
+			"picture":"img/tr1.1.jpg"
+		},
+		{
+			"colorName":"Cиние",
+			"price":60,
+			"picture":"img/tr1.2.jpg"
+		},
+		{
+			"colorName":"Бежевые",
+			"price":60,
+			"picture":"img/trousers1.jpg"
+		}]
+	},
+	{
+		"title":"Брюки Элегант",
+		"picture":"img/trousers2.jpg",
+		"discription":"Состав: лен 55%,хлопок 45%",
+		"price": 72,
+		"subcat":[{
+			"colorName":"Голубые",
+			"price":72,
+			"picture":"img/tr2.1.jpg"
+		},
+		{
+			"colorName":"Красные",
+			"price":72,
+			"picture":"img/tr2.2.jpg"
+		},
+		{
+			"colorName":"Тёмно синии",
+			"price":72,
+			"picture":"img/trousers2.jpg"
+		}]
+	}
+]

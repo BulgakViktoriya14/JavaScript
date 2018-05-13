@@ -1,0 +1,65 @@
+[
+	{
+		"title":"Платье Rosanna",
+		"picture":"img/dress1.jpg",
+		"discription":"Состав: полиэстер 95%,эластан 5%",
+		"price":80,
+		"subcat":[{
+			"colorName":"Розовое",
+			"price":80,
+			"picture":"img/dr1.1.jpg"
+		},
+		{
+			"colorName":"Красное",
+			"price":80,
+			"picture":"img/dr1.2.jpg"
+		},
+		{
+			"colorName":"Белое",
+			"price":80,
+			"picture":"img/dress1.jpg"
+		}]
+	},
+	{
+		"title":"Платье ZARA",
+		"picture":"img/dress2.jpg",
+		"discription":"Состав: полиэстер 90%,эластан 10%",
+		"price": 65,
+		"subcat":[{
+			"colorName":"Зелёное",
+			"price":65,
+			"picture":"img/dr2.1.jpg"
+		},
+		{
+			"colorName":"Бордовое",
+			"price":65,
+			"picture":"img/dr2.2.jpg"
+		},
+		{
+			"colorName":"Белое",
+			"price":65,
+			"picture":"img/dress2.jpg"
+		}]
+	},
+	{
+		"title":"Платье Oodji",
+		"picture":"img/dress3.jpg",
+		"discription":"Состав: хлопок 95%,эластан 5%",
+		"price": 40,
+		"subcat":[{
+			"colorName":"Красное",
+			"price":40,
+			"picture":"img/dr3.1.jpg"
+		},
+		{
+			"colorName":"Cалатовое",
+			"price":40,
+			"picture":"img/dr3.2.jpg"
+		},
+		{
+			"colorName":"Синие",
+			"price":40,
+			"picture":"img/dress3.jpg"
+		}]
+	}
+]

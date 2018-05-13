@@ -1,0 +1,60 @@
+[
+	{
+		"title":"Блузка Oodji",
+		"picture":"img/shirts1.jpg",
+		"discription":"Состав: хлопок 97%,эластан 3%",
+		"price":35,
+		"subcat":[{
+			"colorName":"Розовая",
+			"price":35,
+			"picture":"img/sh1.1.jpg"
+		},
+		{
+			"colorName":"Белая",
+			"price":35,
+			"picture":"img/sh1.2.jpg"
+		},
+		{
+			"colorName":"Красная",
+			"price":35,
+			"picture":"img/shirts1.jpg"
+		}]
+	},
+	{
+		"title":"Рубашка в клетку",
+		"picture":"img/shirts2.jpg",
+		"discription":"Состав: хлопок 100%",
+		"price": 47,
+		"subcat":[{
+			"colorName":"Зелёная",
+			"price":47,
+			"picture":"img/sh2.1.jpg"
+		},
+		{
+			"colorName":"Синяя",
+			"price":47,
+			"picture":"img/sh2.2.jpg"
+		},
+		{
+			"colorName":"Красная",
+			"price":47,
+			"picture":"img/shirts2.jpg"
+		}]
+	},
+	{
+		"title":"Блузка Mango ",
+		"picture":"img/shirts3.jpg",
+		"discription":"Состав: полиэстер 100%",
+		"price": 50,
+		"subcat":[{
+			"colorName":"Розовая",
+			"price":50,
+			"picture":"img/sh3.1.jpg"
+		},
+		{
+			"colorName":"Белая",
+			"price":50,
+			"picture":"img/shirts3.jpg"
+		}]
+	}
+]
