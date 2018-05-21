@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS курсы</title>
+	<style type="text/css">
+		video{
+			margin-left: 17%;
+			margin-top: 3%;
+		}
+		#time{
+			margin-left: 80%;
+			font-size: x-large;
+		}
+		#play{
+			position: absolute;
+			border: none;
+			background-color: white;
+			outline: none;
+			margin-left:4%
+		}
+		#noSound{
+			position: absolute;
+			border: none;
+			background-color: white;
+			outline: none;
+			margin-left: 7%
+		}
+		#stop{
+			position: absolute;
+			border: none;
+			background-color: white;
+			outline: none;
+			margin-left: 1%
+		}
+		#noSound img,#stop img, #play img{
+			width: 30px;
+		}
+		#sound{
+			margin-left: 10%;
+			position: absolute;
+		}
+		.control{
+			padding-top: 10px;
+			padding-bottom: 10px;
+			border: 2px solid black;
+			border-radius: 5px;
+			margin-top: 10px;
+			margin-left: 17%;
+			height: 30px;
+			width: 65.5%;
+		}
+		#slowDown,#normalSpeed,#speedUp{
+			border-radius: 5px;
+			border:1px solid black;
+			margin-top: 5px;
+		}
+		#slowDown{
+			position: absolute;
+			margin-left: 40%;
+		}
+		#normalSpeed{
+			position: absolute;
+			margin-left: 44%;
+		}
+		#speedUp{
+			position: absolute;
+			margin-left: 48%;
+		}
+		 #scaleTime{
+			-webkit-appearance: none;
+			margin-left: 19%;
+			width: 20%;
+			margin-top: 10px;
+			position: absolute;
+		}
+		#scaleTime:focus {
+			outline: none;
+		}
+		#scaleTime::-webkit-slider-runnable-track {
+			height: 8px;
+			cursor: pointer;
+			border: 1px solid #575656;
+			background: black;
+		}
+		#scaleTime::-webkit-slider-thumb {
+			box-shadow: 1px 1px 1px #000;
+			border: 1px solid #000;
+			height: 35px;
+			width: 15px;
+			border-radius: 40%/60%;
+			background: white;
+			cursor: pointer;
+	        -webkit-appearance: none;
+			margin-top: -14px;
+		}	
+		.loadFile{
+			margin-left: 35%;
+		}
+	</style>
+</head>
+<body>
+	<div class="loadFile">
+	<input type="file" id="input">
+	<button id="button">Загрузить</button>
+	</div>
+	<video  width=1000px"></video>
+	<div class="control">
+		<button type="button" id="play"><img src="play.png"></button>	
+		<button type="button" id="stop"><img src="stop.png"></button>	
+		<button type="button" id="noSound"><img src="no-sound.png"></button>	
+		<input type="range" min="0" max="100" value="50" id="sound">
+		<input type="range" value="0" min=0; id="scaleTime">
+		<button type="button" id="slowDown">Slower</button>	
+		<button type="button" id="normalSpeed">Normal</button>
+		<button type="button" id="speedUp">Faster</button>	
+		<div id="time"></div>
+	</div>
+	<script type="text/javascript" src="task3.js"></script>
+</body>
+</html>
