@@ -41,15 +41,18 @@ var App = {
 				e.target.parentNode.children[1].setAttribute("contenteditable", "true");
 			}
 			if(e.target.getAttribute("class") == "save") {
-				let current = e.target;
-				current.parentNode.children[0].removeAttribute("contenteditable");	
-				current.parentNode.children[1].removeAttribute("contenteditable");	
-				let actualName = current.parentNode.children[0].outerText;
-				let actualDiscr = current.parentNode.children[1].outerText;
-				let actualDate = current.parentNode.children[3].outerText;
+				let current = e.target.parentNode;
+				current.children[0].removeAttribute("contenteditable");	
+				current.children[1].removeAttribute("contenteditable");	
+				let actualName = current.children[0].outerText;
+				let actualDiscr = current.children[1].outerText;
+				let actualDate = current.children[3].outerText;
 				console.log(actualName);
-				let id = current.getAttribute("id");
-				firebase.database().ref(`"/news/new${id}"`).set({
+				console.log(actualDiscr);
+				console.log(actualDate);
+				let id = e.target.getAttribute("id");
+				console.log(id);
+				firebase.database().ref(`/news/new${id}`).set({
 					name: actualName,
 					discription: actualDiscr,
 					date:  actualDate,
