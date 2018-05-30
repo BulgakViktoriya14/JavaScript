@@ -1,56 +1,74 @@
-var canvas = document.getElementById("canvas");
-canvas.classList.add("no-active");
-var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#000000";
-var button = document.getElementById("button");
-var x1 = 0, y1 = 0, x2 = 0, y2 = 0;
-var coordinates = [];
-var bool = false;
+var App = {
+	variables: {
+		canvas : document.getElementById("canvas"),
+		ctx: canvas.getContext("2d"),
+		button : document.getElementById("button"),
+		x1 : 0, 
+		y1 : 0, 
+		x2 : 0, 
+		y2 : 0,
+		coordinates : [],
+		bool : false
+	},
 
-canvas.addEventListener('mousemove', function(e) {
-	if(canvas.getAttribute("class") != "no-active") {
-		bool = true;
-		x2 = e.offsetX;
-		y2 = e.offsetY;
-		ctx.beginPath();
-		ctx.moveTo(x1, y1);
-		ctx.lineTo(x2, y2);
-		ctx.stroke();
-		x1 = x2;
-		y1 = y2;
+	start: function() {
+		App.variables.canvas.classList.add("no-active");
+		App.variables.ctx.fillStyle = "#000000";
+		App.variables.canvas.addEventListener('mousemove', function(e) {
+			if(App.variables.canvas.getAttribute("class") != "no-active") {
+				App.variables.bool = true;
+				App.draw(e);
+			}
+		});
+		App.variables.canvas.addEventListener('mousedown', function(e) {
+			App.variables.x1 = e.offsetX;
+			App.variables.y1 = e.offsetY;
+			App.variables.canvas.classList.remove("no-active");
+		});
+		App.variables.canvas.addEventListener('mouseup', function(){
+			App.variables.canvas.classList.add("no-active");
+			App.variables.bool = false;
+			App.saveImage();
+		});
+		App.variables.button.addEventListener('click', function() {
+			App.variables.ctx.clearRect(0,0,850,500);
+			localStorage.clear();
+		});
+		window.addEventListener("load",function() {
+			var cache = localStorage.getItem('coordinates');
+			if(cache){
+				var arr = cache.split(", ");
+				var d = App.variables.ctx.getImageData(0, 0, 850, 500);
+				var dLen = d.data.length;
+				for(var i = 0; i < dLen; i++){
+					d.data[i] = arr[i];
+				}
+				App.variables.ctx.putImageData(d, 0, 0);
+			}
+		});
+	},
+
+	draw: function(e) {
+		App.variables.x2 = e.offsetX;
+		App.variables.y2 = e.offsetY;
+		App.variables.ctx.beginPath();
+		App.variables.ctx.moveTo(App.variables.x1, App.variables.y1);
+		App.variables.ctx.lineTo(App.variables.x2, App.variables.y2);
+		App.variables.ctx.stroke();
+		App.variables.x1 = App.variables.x2;
+		App.variables.y1 = App.variables.y2;
+	},
+
+	saveImage: function() {
+		var data = App.variables.ctx.getImageData(0, 0, 850, 500);
+		var len = data.data.length;
+		for(var i = 0; i < len; i++){
+			App.variables.coordinates[i] = data.data[i] + "";
+		}
+		var str = App.variables.coordinates.join(", ");
+		localStorage.setItem('coordinates', str);
 	}
-});
+}
 
-canvas.addEventListener('mousedown', function(e) {
-	x1 = e.offsetX;
-	y1 = e.offsetY;
-	canvas.classList.remove("no-active");
-});
+App.start();
 
-var coordinates = [];
-canvas.addEventListener('mouseup', function() {
-	canvas.classList.add("no-active");
-	saveImage();
-});
-
-button.addEventListener('click', function() {
-	ctx.clearRect(0,0,1000,500);
-	localStorage.clear();
-});
-
-var saveImage = function(){
-	bool = false;
-	var data = ctx.getImageData(0, 0, 1000, 500);
-	var len = data.data.length;
-	for(var i = 0; i < len; i++){
-		coordinates[i] = data.data[i] + "";
-	}
-	var str = coordinates.join(", ");
-	localStorage.setItem('coordinates', str);
-};
-
-window.addEventListener("load",function() {
-	if(!bool) {
-		localStorage.getItem("coordinates");
-	}
-});
