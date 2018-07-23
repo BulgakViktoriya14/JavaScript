@@ -1,0 +1,49 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+    a.logo{
+    display: block;
+    margin-bottom: 40px;
+}
+    img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+
+h2 {
+    margin-top: 40px;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 3.6rem;
+    color: #fff;
+    background: #36b871;
+}
+
+
+  
+.content{
+    margin-left:240px;
+    margin-top: 80px;
+    width: 100%;
+}
+  
+
+
+  
+
+h1, h2, p {
+    display: block;
+    font-family: 'Open Sans';
+  }
+  h2 {
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 3.6rem;
+    color: #fff;
+    background: #36b871;
+  }

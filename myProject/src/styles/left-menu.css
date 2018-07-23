@@ -1,0 +1,125 @@
+@import url(left-menu.css);
+@import url(header.css);
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+    a.logo{
+    display: block;
+    margin-bottom: 40px;
+    width: 100%;
+}
+    img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+  
+  #menu_col { 
+    width: 220px;
+    height: 100vh;
+    min-height: 600px;
+    padding: 5px;
+   }
+
+
+  
+
+  ul {
+    list-style: none;
+  }
+  
+  li {
+    font-size: 1.6rem;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  li a:visited {
+    color: inherit;
+  }
+  
+  .menu {
+    position: fixed;
+    padding: 20px;
+    max-width: 250px;
+    width: 100%;
+    background: #393939;
+	  top: 0;
+	  left: 0;
+  }
+  
+  .menu__item {
+    padding: 5px 10px 5px 10px;
+    font-size: 1.8rem;
+    max-width: 250px;
+    cursor: pointer;
+    color: #999999;
+  }
+  
+  .menu__item a {
+    transition: padding-left 200ms ease-in-out;
+  }
+  
+  .menu__item:hover a{
+    transform: translate(30px);
+    padding-left: 30px;
+    color: #1e824c;
+  }
+  
+  .menu__item:not(:last-child) {
+    border-bottom: 1px solid #aaa;
+  }
+  
+  .menu__item{
+    background-size: 40px auto;
+    background-position: -40px center;
+    background-repeat: no-repeat;
+    transition: .3s;
+    background-image: url("../img/Task.png");
+  }
+  .menu__item:hover {
+    background-position: 8px center;
+    padding-left: 28px;
+  }
+
+ 
+    #content_col { 
+        margin: 10px 5px 20px 0px;
+        padding: 5px; 
+    }
+    .time{
+        background-image: url("../img/WT.png");
+    }
+    
+    .reports{
+        background-image: url("../img/Repotr.png");
+    }
+    
+    .tasks{
+        background-image: url("../img/Task.png");
+    }
+
+    .menu_footer{
+      margin-top: 40px;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      padding: 10px 20px;
+      box-sizing: border-box;
+    }
+    .user_image img{
+      width:100px;
+      height: 100px;
+      margin: 0;
+    }
