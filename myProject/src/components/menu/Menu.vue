@@ -22,7 +22,7 @@
 <script>
     import ImgLogo from '../img/ImgLogo.vue';
     import { bus } from '../../eventBus.js';
-
+    
     export default {
     	data() {
     		return {
@@ -31,7 +31,7 @@
                 arrTasks:[],
                 getContent: function(path,arr) {
                     const xhr = new XMLHttpRequest(); 
-                    xhr.open('GET', this.$root.URL+`/api/${path}`); 
+                    xhr.open('GET', `${this.$root.URL}/api/${path}`); 
                     xhr.withCredentials = true; 
                     xhr.send(null);
                     xhr.onload = function() {
