@@ -8,15 +8,16 @@
 
 	export default {
 	data() {
+        const date = new Date();
 		return {
-            date: new Date().getDate() + '-' + new Date().getMonth() + '-' + new Date().getFullYear(),
+            date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
 		}
 	},
     methods: {
         
     },
     created () {
-        bus.$on("load",function(arr) {
+        bus.$on("load", function(arr) {
             this.$root.reports = arr;
             console.log(this.$root.reports);
             var div = document.getElementById("old_reports");

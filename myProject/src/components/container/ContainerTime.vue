@@ -13,15 +13,20 @@
 </template>
 
 <script>
-
-	export default {
+const map = {
+    'come' : 'in',
+    'endLunch' : 'Lunch',
+    'startLunch' : 'Lunch',
+    'gone' : 'out'
+};
+export default {
 		data() {
+            const date = new Date();
 			return {
-				date: new Date().getDate() + '-' + new Date().getMonth() + '-' + new Date().getFullYear(),
-                time: new Date().getHours() + ":" + new Date().getMinutes(),
+				date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
+                time: `${date.getHours()}:${date.getMinutes()}`,
                 sendTime: function(obj) {
                     console.log(this.time);
-                    const URL ='http://192.168.0.117:3030';
                     const xhr = new XMLHttpRequest();
                     xhr.open('PUT', this.$root.URL+`/api/timetables/1`); 
                     xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); 
@@ -35,18 +40,9 @@
 		},
         methods: {
             changeTimeTable(e) {
-                if(e.target.getAttribute("id") == "come") {
-                    console.log("come");
-                    this.sendTime("in"); 
-                }
-                if(e.target.getAttribute("id") == "endLunch" || e.target.getAttribute("id") == "startLunch") {
-                    console.log("end lunch");
-                    this.sendTime("Lunch");
-                }
-                if(e.target.getAttribute("id") == "gone") {
-                    console.log("gone");
-                     this.sendTime("out");
-                }
+                const event = map[e.target.getAttribute("id")]; 
+                console.log(event);
+                this.sendTime(event);
             } 
         },
         

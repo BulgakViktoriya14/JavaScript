@@ -19,8 +19,9 @@
 
 	export default {
 		data() {
+			const date = new Date();
 			return {
-				date: new Date().getDate() + '-' + new Date().getMonth() + '-' + new Date().getFullYear(),
+				date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
 				textReport: '',
 				noteReport: '',
 			}
@@ -32,12 +33,12 @@
 		methods: {
 			addReport(valText) {
 				const xhr = new XMLHttpRequest();
-				xhr.open('POST', this.$root.URL+'/api/reports');
+				xhr.open('POST', `${this.$root.URL}/api/reports`);
 				xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
 				xhr.withCredentials = true; 
 				xhr.send(`Date=12-06-2018&MainText=${this.textReport}&Note=${this.noteReport}`);
 				xhr.onload=function() {
-					var newReport = JSON.parse(xhr.responseText);
+					const newReport = JSON.parse(xhr.responseText);
 					console.log(xhr.responseText);
 					bus.$emit("updateReport", newReport);
 				}
