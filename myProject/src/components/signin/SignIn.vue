@@ -18,25 +18,29 @@
 <script>
 import Login from "../input/Login.vue";
 import Password from "../input/Password.vue";
-import { bus } from "../../eventBus.js";
-import request from "../../request.js";
+import { bus } from "../../eventBus";
+import request from "../../request";
 import swal from "sweetalert2";
 
-const map = {
-  200: Ok,
-  400: BadRequest
+const mapOnStatus = {
+  200 : Ok,
+  400 : BadRequest
 };
-function Ok() {
-  window.location.href = "/WorkSpace/Reports";
+const mapOnRole = {
+  'admin' : '/WorkSpace/Admin',
+  'user' : '/WorkSpace/User'
+};
+function Ok(role) {
+    window.location.href = mapOnRole[role];
 }
 function BadRequest() {
-  swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
+    swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
 }
 export default {
   data() {
     return {
       myLog: "",
-      myPassw: ""
+      myPassw: "",
     };
   },
   components: {
@@ -45,14 +49,10 @@ export default {
   },
   methods: {
     connect() {
-      const xhr = request(
-        "POST",
-        `${this.$root.URL}/auth`,
-        `Login=${this.myLog}&Password=${this.myPassw}`
-      );
-      xhr.onload = function() {
-        console.log(xhr.status);
-        map[xhr.status]();
+      const xhr = request("POST", `${this.$root.URL}/auth`, `Login=${this.myLog}&Password=${this.myPassw}`);
+      xhr.onload = () => {
+        const user =  JSON.parse(xhr.responseText); 
+        mapOnStatus[xhr.status](user.Role);
       };
     }
   }

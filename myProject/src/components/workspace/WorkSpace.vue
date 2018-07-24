@@ -1,5 +1,8 @@
 <template>
   <div class="app">
+      <div class="back">
+          <div class="back-overlay"></div>
+      </div>
       <Header></Header>
       <div class="main">
           <Menu></Menu>
@@ -7,6 +10,7 @@
               <router-view></router-view>
           </div>
       </div>
+
   </div>
 </template>
 

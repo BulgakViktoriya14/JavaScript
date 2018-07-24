@@ -3,16 +3,17 @@
         <div class="report__date">
             <p>{{date}}</p>      
         </div>
-        <div class="time_buttons" v-on:click="changeTimeTable" >
-  			<button id="come">Пришёл</button>
-            <button id="startLunch">Начало обеда</button>
-            <button id="endLunch">Конец обеда</button>
-            <button id="gone">Ушёл</button>
+        <div class="time_buttons" @click="changeTimeTable" >
+            <button id="come">Has come</button>
+            <button id="startLunch">Early lunch</button>
+            <button id="endLunch">End of lunch</button>
+            <button id="gone">Gone</button>
         </div>
 </div>
 </template>
 
 <script>
+import {getDate, getTime} from '../../helpers/date';
 const map = {
     'come' : 'in',
     'endLunch' : 'Lunch',
@@ -20,11 +21,10 @@ const map = {
     'gone' : 'out'
 };
 export default {
-		data() {
-            const date = new Date();
-			return {
-				date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
-                time: `${date.getHours()}:${date.getMinutes()}`,
+        data() {
+            return {
+                date: getDate(),
+                time: getTime(),
                 sendTime: function(obj) {
                     console.log(this.time);
                     const xhr = new XMLHttpRequest();
@@ -36,8 +36,8 @@ export default {
                         console.log(xhr.responseText); 
                     }
                 }
-			}
-		},
+            }
+        },
         methods: {
             changeTimeTable(e) {
                 const event = map[e.target.getAttribute("id")]; 
@@ -47,7 +47,7 @@ export default {
         },
         
        
-	}
+    }
 </script>
 
 <style>

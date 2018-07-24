@@ -1,9 +1,15 @@
 <template>
-	 <div class="left">
-            <aside class="menu" id="menu_col">
-                <ImgLogo></ImgLogo>
+    <div>
+        <input type="checkbox" id="menu">
+        <label for="menu" onclick>
+            <ImgLogo></ImgLogo>
+        </label>
+        <div class="left">
+            <aside class="menu off-canvas" id="menu_col">
+                <img class="close_button" src="../../img/close.png">
+                <a href="#" class="logo"><img src="../../img/logo.png" ></a>
                 <nav class="menu__nav">
-                	<ul class="menu__list " @click="choosePage">
+                    <ul class="menu__list " @click="choosePage">
                         <li class="menu__item time">
                             <router-link tag="a" to="/WorkSpace/WorkTime" id="worktime">Work Time</router-link>
                         </li>
@@ -15,8 +21,13 @@
                         </li>
                     </ul>
                 </nav>
+                <div class=menu_footer>
+                    <a href="#" class="user_image"><img  src="../../img/CUser.png"></a>
+                    <h1>Personal cabinet</h1>
+                </div>
             </aside>
-     </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -24,8 +35,8 @@
     import { bus } from '../../eventBus.js';
     
     export default {
-    	data() {
-    		return {
+        data() {
+            return {
                 arrRep:[],
                 arrTime:[],
                 arrTasks:[],
@@ -41,7 +52,7 @@
                     }
                 } 
             }
-    	},
+        },
         components: {
             ImgLogo
         },

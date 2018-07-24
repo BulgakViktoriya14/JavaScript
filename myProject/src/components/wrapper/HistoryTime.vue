@@ -6,25 +6,25 @@
                 <div class="raw__time">
                     <div class="raw_coming times">
                         <div class="time_header">
-                            <p>Пришёл</p>
+                            <p>Has come</p>
                         </div>
                         <p class="raw__time-text">01:52</p>
                     </div>
                     <div class="raw_dinner_in times">
                         <div class="time_header">
-                            <p>Начало обеда</p>
+                           <p>Early lunch</p>
                         </div>
                         <p class="raw__time-text">01:52</p>
                     </div>
                     <div class="raw_dinner_out times" >
                         <div class="time_header">
-                            <p>Конец обеда</p>
+                            <p>End of lunch</p>
                         </div>
                         <p class="raw__time-text">01:52</p>
                     </div>
                     <div class="raw_out times">
                         <div class="time_header">
-                            <p>Ушёл</p>
+                            <p>Gone</p>
                         </div>
                         <p class="raw__time-text">01:52</p>
                     </div>
@@ -38,7 +38,7 @@
 	export default {
 	data() {
 		return {
-		      items:[]
+		      items:[1,2,3]
 		}
 	}
 

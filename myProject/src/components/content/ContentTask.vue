@@ -1,6 +1,6 @@
 <template>
        <div id="content_col">
-            <ContainerTask v-if="flag"></ContainerTask>
+            <ContainerTask></ContainerTask>
           	<h2>{{title}}</h2>
             <OldTasks></OldTasks>
         </div>
@@ -14,8 +14,7 @@
 	export default {
 		data() {
 			return {
-				title : "Work Task",
-				flag: ''
+				title : "Work Tasks"
 			}
 		},
 		components: {
@@ -23,10 +22,6 @@
 			OldTasks,
 		},
 		created () {
-			bus.$on('doFlag', function(fl) {
-				this.flag = fl;
-				console.log(this.flag);
-			})
 		}
 	}
 </script>

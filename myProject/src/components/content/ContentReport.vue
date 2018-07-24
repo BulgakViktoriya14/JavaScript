@@ -14,7 +14,7 @@
 	export default {
 		data() {
 			return {
-				title : "Work Report",
+				title : "Work Reports",
 			}
 		},
 		components: {
