@@ -18,8 +18,9 @@
 
 	export default {
 		data() {
+			const date = new Date();
 			return {
-				date: new Date().getDate() + '-' + new Date().getMonth() + '-' + new Date().getFullYear(),
+				date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
 			}
 		},
 		components: {
