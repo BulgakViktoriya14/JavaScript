@@ -4,10 +4,10 @@
             <p>{{date}}</p>      
         </div>
         <div class="time_buttons" v-on:click="changeTimeTable" >
-            <button id="come">Пришёл</button>
-            <button id="startLunch">Начало обеда</button>
-            <button id="endLunch">Конец обеда</button>
-            <button id="gone">Ушёл</button>
+            <button id="come">Has come</button>
+            <button id="startLunch">Early lunch</button>
+            <button id="endLunch">End of lunch</button>
+            <button id="gone">Gone</button>
         </div>
 </div>
 </template>
