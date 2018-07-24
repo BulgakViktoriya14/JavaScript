@@ -21,12 +21,14 @@ import Password from "../input/Password.vue";
 import { bus } from "../../eventBus.js";
 import request from "../../request.js";
 import swal from "sweetalert2";
-const map = {
-  200: Ok,
-  400: BadRequest
-};
+
 function Ok() {
-  window.location.href = "/WorkSpace/Reports";
+  if(this.user.Role == "admin") {
+    window.location.href = "/WorkSpace/Admin";
+  }
+  if(this.user.Role == "user") {
+    window.location.href = "/WorkSpace/User";
+  }
 }
 function BadRequest() {
   swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
@@ -35,7 +37,7 @@ export default {
   data() {
     return {
       myLog: "",
-      myPassw: ""
+      myPassw: "",
     };
   },
   components: {
@@ -50,8 +52,18 @@ export default {
         `Login=${this.myLog}&Password=${this.myPassw}`
       );
       xhr.onload = function() {
-        console.log(xhr.status);
-        map[xhr.status]();
+        var user =  JSON.parse(xhr.responseText); 
+        if(xhr.status == 200) {
+            if(user.Role == "admin") {
+                window.location.href = "/WorkSpace/Admin";
+            }
+            if(user.Role == "user") {
+                window.location.href = "/WorkSpace/User";
+            }
+        }
+        if(xhr.status == 400) {
+            BadRequest();
+        }
       };
     }
   }
