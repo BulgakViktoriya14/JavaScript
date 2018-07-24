@@ -1,10 +1,7 @@
 
 
-h1, h2, p {
-    display: block;
-    font-family: 'Open Sans';
-  }
-  h2 {
+
+ .top_menu h2 {
     display: inline-block;
     padding: 5px 20px;
     font-size: 3.6rem;
@@ -29,6 +26,7 @@ h1, h2, p {
     align-items: center;
     height: 100%;
     padding: 10px 0;
+    padding-left: 100px;
   }
 
   .header__user {
@@ -45,11 +43,17 @@ h1, h2, p {
     width: 100%;
   }
 
-  .name a{
+  .header a{
     color: white;
-    text-decoration: none;
   }
 
-  .name{
+  .top_menu .name{
     margin-left: 225px;
+  }
+
+  @media screen and (max-width:740px){
+    .top_menu{
+      height: 40px;
+      min-height: 40px;
+    }
   }

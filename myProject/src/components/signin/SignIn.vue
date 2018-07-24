@@ -1,5 +1,8 @@
 <template>
 <div class="main">
+	 <div class="back">
+        <div class="back-overlay"></div>
+     </div>
 	<div class="content">
 		<div class="auth">
 	        <div class="auth_header">
@@ -9,7 +12,7 @@
 	            <Login @sendLogin="myLog=$event"></Login>
 	            <Password @sendPassword="myPassw=$event"></Password>
 	        </div>
-	       <button class="signIn" type="signIn" @click="conect"><router-link tag="a" to="/WorkSpace/Reports">Sign In</router-link></button>
+	       <button class="signIn" type="signIn" @click="connect">Sign In</button>
 	    </div>
 	</div>
 </div>
@@ -33,45 +36,22 @@
 			Password
 		},
 		methods: {
-			getUser() {
-				const xhr = new XMLHttpRequest();
-				xhr.open('GET', this.$root.URL+'/auth'); 
-				xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); 
+			connect() { 
+				const xhr = new XMLHttpRequest(); 
+				xhr.open("POST", this.$root.URL + "/auth"); 
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); 
 				xhr.withCredentials = true; 
-				xhr.send(null); 
-				xhr.onload = function() {
-					let user = JSON.parse(xhr.responseText);
-					console.log(user.role);
-					if(user.role == "admin") {
-						this.flag = true;
-					}
-					bus.$emit('doFlag', this.flag);
+				xhr.send(`Login=${this.myLog}&Password=${this.myPassw}`); 
+				xhr.onload = function() { 
+					if (xhr.status === 200) { 
+						let user = JSON.parse(xhr.responseText);
+						window.location.href = '/WorkSpace/Reports';
+
+					} 
+					else if (xhr.status === 400) { 
+
+					} 
 				}
-			},
-			conect() {
-				if(this.myLog.match(/^[a-zA-Z]+[a-zA-Z0-9\-]{6,20}$/)&&this.myPassw.match(/^[a-zA-Z0-9]{7,20}$/)) {
-					const xhr = new XMLHttpRequest();
-					xhr.open('POST', this.$root.URL+'/auth'); 
-					xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); 
-					xhr.withCredentials = true; 
-					xhr.send(`Login=${this.myLog}&Password=${this.myPassw}`); 
-					xhr.onload=function() {
-						console.log(xhr.responseText);
-					}
-				} else {
-					alert("Ошибка при вводе данных!");
-					if(!this.myLog.match(/^[a-zA-Z]+[a-zA-Z0-9\-]{6,20}$/)) {
-						console.log(e.target.parentNode.children[1].children[0]);
-					}
-					if(!this.myPassw.match(/^[a-zA-Z0-9]{7,20}$/)) {
-						console.log(e.target.parentNode.children[1].children[1]);
-					}
-					if(!this.myLog.match(/^[a-zA-Z]+[a-zA-Z0-9\-]{6,20}$/)&&!this.myPassw.match(/^[a-zA-Z0-9]{7,20}$/)) {
-						console.log(e.target.parentNode.children[1].children[0]);
-							console.log(e.target.parentNode.children[1].children[1]);
-					}
-				}
-				
 			}
 		}
 	}

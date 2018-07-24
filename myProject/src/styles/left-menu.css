@@ -1,19 +1,10 @@
-@import url(left-menu.css);
-@import url(header.css);
 
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
 
     a.logo{
     display: block;
     margin-bottom: 40px;
-    width: 100%;
 }
-    img{
+   .left .logo img{
     width: 100%;
     display: block;
     margin: 0 auto;
@@ -21,9 +12,9 @@
 
   
   #menu_col { 
-    width: 220px;
+    width: 240px;
     height: 100vh;
-    min-height: 600px;
+    min-height: 400px;
     padding: 5px;
    }
 
@@ -39,12 +30,12 @@
     font-family: 'Open Sans', sans-serif;
   }
   
-  li a {
+  a {
     text-decoration: none;
     color: inherit;
   }
   
-  li a:visited {
+  a:visited {
     color: inherit;
   }
   
@@ -97,20 +88,20 @@
         margin: 10px 5px 20px 0px;
         padding: 5px; 
     }
-    .time{
+    left .time{
         background-image: url("../img/WT.png");
     }
     
-    .reports{
+    left .reports{
         background-image: url("../img/Repotr.png");
     }
     
-    .tasks{
+    left .tasks{
         background-image: url("../img/Task.png");
     }
 
     .menu_footer{
-      margin-top: 40px;
+      display: flex;
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -119,7 +110,93 @@
       box-sizing: border-box;
     }
     .user_image img{
-      width:100px;
-      height: 100px;
+      width:70px;
+      height: 70px;
       margin: 0;
     }
+    .logo{
+      margin:10px 5px 5px 5px;
+    }
+    .menu_footer a{
+      flex:left;
+    }
+    .menu_footer h1{
+      padding-top:10px; 
+      margin-left:10px;  
+      text-align: left;
+      color:#999;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 25px;
+      font-weight: normal;
+    }
+    label {
+      position: absolute;
+      left:0;
+      display:none;
+      padding:.35em;
+      cursor: pointer;
+      user-select:none;
+      margin:0;
+    }
+    input[type=checkbox] {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    .close_button{
+      display: none;
+    }
+    
+@media screen and (max-width:740px){
+  body {
+    overflow-x: hidden;
+  }
+
+  .off-canvas {
+    left: -20em;
+    transition: left 0.5s ease-out;
+    
+  }
+  .off-canvas ul li {
+    width: 100%;
+  }
+
+  label {
+    display: block;
+  }
+
+   label:after {
+    z-index: 100;
+    position: absolute;
+  }
+
+
+  input:checked  .content {
+    margin-left: 20em + .5em;
+    margin-right: -25em;
+  }
+  .logo{
+    margin-top:40px;
+  }
+
+  .menu_button{
+    height: 30px;
+  }
+  
+  .close_button{
+    display: block;
+    height: 32px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+  }
+  .close_button:hover{
+    transform: scale(0.9);
+  }
+  
+  .menu_button:hover{
+    transform: scale(0.9);
+  }
+}
+

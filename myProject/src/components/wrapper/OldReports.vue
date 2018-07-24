@@ -1,22 +1,22 @@
 <template>
-	<div class="old_reports" id="old_reports">
-   	</div>
+    <div class="old_reports" id="old_reports">
+    </div>
 </template>
 
 <script>
     import { bus } from '../../eventBus.js';
-
-	export default {
-	data() {
-		return {
-            date: new Date().getDate() + '-' + new Date().getMonth() + '-' + new Date().getFullYear(),
-		}
-	},
+    export default {
+    data() {
+        const date = new Date();
+        return {
+            date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
+        }
+    },
     methods: {
         
     },
     created () {
-        bus.$on("load",function(arr) {
+        bus.$on("load", function(arr) {
             this.$root.reports = arr;
             console.log(this.$root.reports);
             var div = document.getElementById("old_reports");
@@ -27,8 +27,8 @@
                     divRawList.innerHTML = `<div class="raw">
                         <p class="raw__date">${report.Date}</p>
                         <div class="raw__report">
-                            <p class="raw__report-text">${report.MainText}</p>
-                            <p class="raw__report-note">${report.Note}</p>
+                            <div class="raw__report-text"><h1>Report</h1><p>${report.MainText}</p></div>
+                            <div class="raw__report-note"><h1>Notes</h1>${report.Note}</p></div>
                         </div>
                     </div>`
             div.appendChild(divRawList);

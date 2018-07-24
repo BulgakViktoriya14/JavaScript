@@ -1,31 +1,8 @@
-  button, [type="submit"] {
-    font-size: 1.8rem;
-    cursor: pointer;
-  }
-  
- 
-  .container {
-    max-width: 1240px;
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .main{
-    display: flex;
-  }
+@import url(left-menu.css);
+@import url(header.css);
+@import url(main.css);
+@import url(footer.css);
 
-   
-
-    p, input, textarea, [type="submit"], button {
-        font-size: 1.6rem;
-        font-family: 'Open Sans', sans-serif;
-      }
-      
-      h1, h2, p {
-        display: block;
-        font-family: 'Open Sans';
-      }
-      
       h2 {
         display: inline-block;
         padding: 5px 20px;
@@ -81,7 +58,6 @@
         display: flex;
         justify-content: flex-start;
         position: relative;
-        margin-left: 65px;
         font-size: 1.6rem;
       }
       
@@ -134,7 +110,6 @@
       
       .report__date {
         margin-bottom: 15px;
-        margin-left: 40px;
       }
       
       .report__date p {
@@ -167,7 +142,7 @@
       
       
       
-      .more_text{
+      .border{
         margin-top: 5px;
         margin-bottom: 5px;
         margin-left: 15px;
@@ -206,16 +181,8 @@
         margin: 10px 5px 20px 0px;
         padding: 5px; 
        }
-  
+  .raw__report h1{
+    margin-bottom:12px;
+  }
 
-.time{
-  background-image: url("../img/WT.png");
-}
-
-.reports{
-  background-image: url("../img/Repotr.png");
-}
-
-.tasks{
-  background-image: url("../img/Task.png");
-}
+       

@@ -1,0 +1,95 @@
+@import url(left-menu.css);
+@import url(header.css);
+@import url(footer.css);
+@import url(main.css);
+
+
+.delete{
+    margin: auto;
+    margin-top:20vh; 
+    min-width:500px;
+    width: 30vw;
+}
+
+.delete{
+    margin-bottom: 30px;
+}
+
+.find p{
+    display: inline-block;
+    font-size:1.4em;
+    font-weight: bold;
+}
+
+.delete input{
+    margin-left:70px;
+    float: right;
+}
+.found{
+    font-weight: normal;
+    margin-top:50px; 
+    color:#36B871;
+}
+.del_buttons button{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 2vh 3vw;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.del_buttons{
+    margin-top : 10vh;
+    padding-bottom : 100px;
+}
+
+.del_buttons button{
+    background-color: white; 
+    color: black; 
+    border: 2px solid #36b871;
+}
+.del_buttons button:hover{
+    background-color: #36b871;
+    color: white;
+}
+[type="delete"]{
+    float: left;
+    margin-left: 15px;
+}
+
+[type="cancel"]{
+    float: right;
+    margin-right: 15px;
+}
+input{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input{
+    resize:vertical;
+    border: 0;
+    background: white no-repeat;
+    background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+    /* sizes for the 2 images (default state) */
+    background-size: 0 2px, 100% 1px;
+    /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+    background-position: 50% 100%, 50% 100%;
+
+    /* animation solely on background-size */
+    transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  
+}
+
+input:focus {
+    background-size: 100% 2px, 100% 1px;
+    outline: none;
+}
