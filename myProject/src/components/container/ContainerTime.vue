@@ -24,18 +24,7 @@ export default {
         data() {
             return {
                 date: getDate(),
-                time: getTime(),
-                sendTime: function(obj) {
-                    console.log(this.time);
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('PUT', this.$root.URL+`/api/timetables/1`); 
-                    xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); 
-                    xhr.withCredentials = true; 
-                    xhr.send(`obj=${this.time}`);
-                    xhr.onload = function() {
-                        console.log(xhr.responseText); 
-                    }
-                }
+                time: getTime()
             }
         },
         methods: {
