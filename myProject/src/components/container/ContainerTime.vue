@@ -21,9 +21,9 @@ const map = {
 };
 export default {
         data() {
-            const date = new Date();
+           const date = new Date();
             return {
-                date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
+                date:`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
                 time: `${date.getHours()}:${date.getMinutes()}`,
                 sendTime: function(obj) {
                     console.log(this.time);

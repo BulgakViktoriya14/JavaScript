@@ -1,3 +1,6 @@
+  .menu{
+    z-index: 5;
+  }
 
 
     a.logo{
@@ -18,7 +21,7 @@
     padding: 5px;
    }
 
-
+   
   
 
   ul {
@@ -130,13 +133,15 @@
       font-weight: normal;
     }
     label {
-      position: absolute;
+      position: fixed;
       left:0;
       display:none;
       padding:.35em;
       cursor: pointer;
       user-select:none;
       margin:0;
+      
+      z-index: 5;
     }
     input[type=checkbox] {
       position: absolute;

@@ -10,7 +10,7 @@
 	    },
 	    methods: {
 	    	goOnPageAdd() {
-	    		 window.location.href = "/WorkSpace/AddNewUser";
+	    		 window.location.href = "/WorkSpace/CheckIn";
 	    	}
 	    }
     }

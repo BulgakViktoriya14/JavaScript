@@ -21,7 +21,7 @@
 		data() {
 			const date = new Date();
 			return {
-				date: `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
+				date:`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
 				textReport: '',
 				noteReport: '',
 			}

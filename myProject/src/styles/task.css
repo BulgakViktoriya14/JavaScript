@@ -145,15 +145,15 @@
           width: 100%;
           border: 0;
           padding: 10px 5px;
-        background: white no-repeat;
-        background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+          background: white no-repeat;
+          background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
           /* sizes for the 2 images (default state) */
           background-size: 0 2px, 100% 1px;
           /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
           background-position: 50% 100%, 50% 100%;
       
           /* animation solely on background-size */
-        transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+          transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
       }
       
       
@@ -167,15 +167,33 @@
       }
       
       [type="text"]:focus {
-        background-size: 100% 2px, 100% 1px;
+          background-size: 100% 2px, 100% 1px;
         outline: none;
       }
       
       [name*="task"] {
         display: inline-block;
-        max-width: 20%;
+        max-width: 22%;
         width: 100%;
         
+      }
+
+      .users{
+        position: relative;
+        max-width: 22%;
+      }
+
+      .type-search {
+        width: 17vw;
+        margin: 10px auto;
+        display: block;
+        padding: 4vh;
+        font-size: 1.6rem;
+      }
+      [name="task_time"], [name="task_note"], [name="task_text"]{
+        width: 100%;
+        margin: 10px auto;
+        display: block;
       }
       
       [type="submit"] {
@@ -202,4 +220,27 @@
        .raw__task h1{
         margin-bottom:12px;
       }
-    
+
+      #list{
+        display: none;
+        position: absolute;
+        width:100%;
+        border:none;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.2em;
+        background: white;
+      }
+
+      #list li{
+        border-bottom: solid 1px #36b871;
+      }
+      #list li:hover{
+        background: #36b871;
+        color:white;
+      }
+
+      
+
+      
+      
+      
