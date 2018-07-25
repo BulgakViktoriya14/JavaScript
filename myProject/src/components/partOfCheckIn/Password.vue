@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div class="registration" name="password">
+		<div class="registration" name="password" @change="passwordChange">
 		       <p>Password</p>
 	           <input type="password">
 	    </div>
@@ -12,11 +12,18 @@
 </template>
 
 <script>
+import {bus} from '../../eventBus';
+	
 	export default {
 	data() {
 		return {
 			valPassw:'',
 			valRepPassw:''
+		}
+	},
+	methods : {
+		passwordChange(e) {
+			bus.$emit('passwordChange', e.target.value);
 		}
 	}
 }
