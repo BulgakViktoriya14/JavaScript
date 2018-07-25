@@ -1,15 +1,22 @@
 <template>
 	<div class="registration" name="login">
         <p>Login</p>
-        <input type="text">
+        <input type="text" @change="loginChange">
     </div>
 </template>
 
 <script>
+import {bus} from '../../eventBus';
+	
 	export default {
 	data() {
 		return {
 			valLogin: ""
+		}
+	},
+	methods : {
+		loginChange(e) {
+			bus.$emit('loginChange', e.target.value);
 		}
 	}
 }

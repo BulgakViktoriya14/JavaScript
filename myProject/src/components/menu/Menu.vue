@@ -22,7 +22,7 @@
                     </ul>
                 </nav>
                 <div class=menu_footer>
-                    <a href="#" class="user_image"><img  src="../../img/CUser.png"></a>
+                    <a href="#" class="user_image"  @click="goOnCabinet"><img  src="../../img/CUser.png"></a>
                     <h1>Personal cabinet</h1>
                 </div>
             </aside>
@@ -71,6 +71,9 @@
                 console.log("tasks");
                 this.getContent("tasks",this.arrTasks);
             }
+          },
+          goOnCabinet() {
+             window.location.href = '/WorkSpace/User';
           }
         }
     }

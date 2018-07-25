@@ -22,9 +22,7 @@
                     console.log(this.listUsers);
                     for(var us of this.listUsers) {
                         let span = document.createElement("span");
-                        span.innerHTML = `<p>${us.Name}</p>
-                        <div style="display:none">${us.Login}</div>
-                        <div style="display:none">${us.Role}</div>`;
+                        span.innerHTML = `<p login=${us.Login} role=${us.Role} id=${us.Id}>${us.Name}</p>`;
                         divUsers.appendChild(span);
                     } 
                 }

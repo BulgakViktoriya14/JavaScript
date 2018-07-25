@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <div class="report__date">
-            <p>{{date}}</p>      
+            <h1>{{date}}</h1>      
         </div>
         <div class="report__inputs">
             <ReportText @addTextReport="textReport=$event"></ReportText>
@@ -14,33 +14,34 @@
 </template>
 
 <script>
-	import ReportText from '../textarea/ReportText.vue';
-	import ReportNote from '../textarea/ReportNote.vue';
-	import { bus } from '../../eventBus.js';
-	export default {
-		data() {
-			const date = new Date();
-			return {
-				date:`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
-				textReport: '',
-				noteReport: '',
-			}
-		},
-		components: {
-			ReportText,
-			ReportNote,
-		},
-		methods: {
-			addReport(valText) {
-				const xhr = new XMLHttpRequest();
-				xhr.open('POST', `${this.$root.URL}/api/reports`);
-				xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" );
-				xhr.withCredentials = true; 
-				xhr.send(`Date=26-07-2018&MainText=${this.textReport}&Note=${this.noteReport}`);
-				bus.$emit("updateReport");
-			}
-		}
-	}
+import ReportText from "../textarea/ReportText.vue";
+import ReportNote from "../textarea/ReportNote.vue";
+import { bus } from "../../eventBus.js";
+import { getDate } from "../../helpers/date";
+import request from "../../request";
+export default {
+  data() {
+    return {
+      date: getDate(),
+      textReport: "",
+      noteReport: ""
+    };
+  },
+  components: {
+    ReportText,
+    ReportNote
+  },
+  methods: {
+    addReport(valText) {
+      const xhr = request(
+        "POST",
+        `${this.$root.URL}/api/reports`,
+        `Date=${this.date}&MainText=${this.textReport}&Note=${this.noteReport}`
+      );
+      bus.$emit("updateReport");
+    }
+  }
+};
 </script>
 
 <style>

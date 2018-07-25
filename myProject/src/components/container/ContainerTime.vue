@@ -1,9 +1,9 @@
 <template>
 <div>
         <div class="report__date">
-            <p>{{date}}</p>      
+            <h1>{{date}}</h1>     
         </div>
-        <div class="time_buttons" v-on:click="changeTimeTable" >
+        <div class="time_buttons" @click="changeTimeTable" >
             <button id="come">Has come</button>
             <button id="startLunch">Early lunch</button>
             <button id="endLunch">End of lunch</button>
@@ -13,40 +13,27 @@
 </template>
 
 <script>
+import request from '../../request';
+import {getDate, getTime} from '../../helpers/date';
 const map = {
-    'come' : 'in',
+    'come' : 'In',
     'endLunch' : 'Lunch',
     'startLunch' : 'Lunch',
-    'gone' : 'out'
+    'gone' : 'Out'
 };
 export default {
         data() {
-           const date = new Date();
             return {
-                date:`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
-                time: `${date.getHours()}:${date.getMinutes()}`,
-                sendTime: function(obj) {
-                    console.log(this.time);
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('PUT', this.$root.URL+`/api/timetables/1`); 
-                    xhr.setRequestHeader( "Content-Type", "application/x-www-form-urlencoded" ); 
-                    xhr.withCredentials = true; 
-                    xhr.send(`obj=${this.time}`);
-                    xhr.onload = function() {
-                        console.log(xhr.responseText); 
-                    }
-                }
+                date: getDate(),
+                time: getTime()
             }
         },
         methods: {
             changeTimeTable(e) {
-                const event = map[e.target.getAttribute("id")]; 
-                console.log(event);
-                this.sendTime(event);
+                const data = map[e.target.getAttribute("id")]; 
+
             } 
         },
-        
-       
     }
 </script>
 

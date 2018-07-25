@@ -10,9 +10,7 @@
             </div>
             <div class="names" id="users_name" @click="chooseUser">
                 <span>
-                    <p>Иванов Иван</p>
-                    <div style="display:none">Логин</div>
-                    <div style="display:none">Роль</div>
+                    <p login='user1' role='user' id="id" >Иванов Иван</p>
                 </span>
             </div>
             <div class="buttons">
@@ -43,12 +41,21 @@
 		},
         methods: {
             chooseUser(e) {
-                console.log(e.target);
-                bus.$emit("sendUserData",[e.target, e.target.parentNode.children[1], e.target.parentNode.children[2]])
-                window.location.href = "/WorkSpace/User";
+                const currentUser = e.target;
+                /*bus.$emit("sendUserData",
+                    [
+                        currentUser.innerText, 
+                        currentUser.getAttribute('login'), 
+                        currentUser.getAttribute('role')
+                    ]);
+                    */
+                window.location.href = `/WorkSpace/User?Name=${currentUser.innerText}`;
             }
         }
-	}
+    }
+    
+    //e.target - возврат элемента на котором произошло событие. Т.е. при клике на таймтэйл
+    // можно доставать через e.target id и потом играться с ним
 </script>
 
 <style src="../../styles/admin.css"></style>

@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <div class="task__date">
-            <p>{{date}}</p>         
+            <h1>{{date}}</h1>          
         </div>
         <div class="task__inputs">
         	<TaskUser></TaskUser>
@@ -21,12 +21,11 @@
 	import TaskNote from '../textarea/TaskNote.vue';
 	import TaskUser from '../textarea/TaskUser.vue';
 	import TaskTime from '../textarea/TaskTime.vue'
-
+	import {getDate} from '../../helpers/date';
 	export default {
 		data() {
-			const date = new Date();
 			return {
-				date:`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`,
+				date: getDate()
 			}
 		},
 		components: {
