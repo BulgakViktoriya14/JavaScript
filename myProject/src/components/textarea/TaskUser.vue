@@ -1,6 +1,6 @@
 <template>
 	 <div class="users">
-     <select class="type-search" type="text">
+     <select class="type-search" multiple size="1" type="text">
      		<option></option>
             <option value="u1">User1</option>
             <option value="u2">User2</option>

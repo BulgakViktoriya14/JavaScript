@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <div class="report__date">
-            <p>{{date}}</p>      
+            <h1>{{date}}</h1>      
         </div>
         <div class="report__inputs">
             <ReportText @addTextReport="textReport=$event"></ReportText>
@@ -36,7 +36,7 @@ export default {
       const xhr = request(
         "POST",
         `${this.$root.URL}/api/reports`,
-        `Date=26-07-2018&MainText=${this.textReport}&Note=${this.noteReport}`
+        `Date=${this.date}&MainText=${this.textReport}&Note=${this.noteReport}`
       );
       bus.$emit("updateReport");
     }

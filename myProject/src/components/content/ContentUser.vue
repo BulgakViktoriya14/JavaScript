@@ -45,8 +45,8 @@
         methods: {
             
         },
-        created () {
-            bus.$on("sendUserData", function(name, login, role) {
+        created() {
+            bus.$on("sendUserData", ([name, login, role]) => {
                 this.nameUser = name;
                 this.loginUser = login;
                 this.roleUser = role;

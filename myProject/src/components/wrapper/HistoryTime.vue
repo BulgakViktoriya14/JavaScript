@@ -1,6 +1,6 @@
 <template>
 	<div class="old_reports">
-        <div class="raw__list">
+        <div class="raw__list" @click="clickOnRecord">
             <div class="raw" v-for="item of items" :key="item.id">
                 <input type="hidden" :value="item.id"/>
                 <p class="raw__date">{{item.Date}}</p>
@@ -36,27 +36,44 @@
 </template>
 
 <script>
-import request from '../../request';
-	export default {
-	data() {
-		return {
-		      items:[]
-		}
-    },
-    created() {
-        const xhr = request('GET', `${this.$root.URL}/api/timetables`, null);
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                let [startLunch, endLunch] = [null, null];
-                if (data.Lunch) [startLunch, endLunch] = data.Lunch.parse('@');
-                data.StartLunch = startLunch;
-                data.EndLunch = endLunch; 
-                this.items = data;
-            }
-        }
-    }
+import request from "../../request";
+import { bus } from "../../eventBus";
+function getCurrentTimetableID(element) {
+  while (element.parentNode.getAttribute("class") != "raw")
+    element = element.parentNode;
+  const root = element.parentNode;
+  return root.children[0].getAttribute("value");
 }
+
+export default {
+  data() {
+    return {
+      items: []
+    };
+  },
+  created() {
+    const xhr = request("GET", `${this.$root.URL}/api/timetables`, null);
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const timetables = JSON.parse(xhr.responseText);
+        for (let timetable of timetables) {
+          let [startLunch, endLunch] = [null, null];
+          if (timetable.Lunch) [startLunch, endLunch] = timetable.Lunch.split("@");
+          timetable.StartLunch = startLunch;
+          timetable.EndLunch = endLunch;
+        }
+        this.items = timetables;
+      }
+    };
+  },
+  methods: {
+    clickOnRecord(e) {
+      const id = getCurrentTimetableID(e.target);
+      const timetable = this.items.find(elem => elem.id == id);
+      bus.$emit("takeTimetable", timetable);
+    }
+  }
+};
 </script>
 
 <style>
