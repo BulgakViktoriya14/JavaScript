@@ -109,6 +109,12 @@
     }
     .time_buttons button{
         margin-left:30px;
+         background-color: white; 
+        color: black; 
+        border: 2px solid #36b871;
+         height: 70px;
+        width: 250px;
+        font-size: 2.0em;
     }
 
     .timetable {
@@ -181,8 +187,4 @@
           margin-top: 20px;
       }
 
-      .time_buttons button{
-        height: 70px;
-        width: 250px;
-        font-size: 2.0em;
-      }
+      

@@ -10,14 +10,14 @@
   }
 
   .top_menu {
-    position: absolute;
+    position: fixed;
     min-height: 60px;
     min-width: 600px;
     width: 100%;
     background: #36b871;
     margin: 0;
     top:0;
-    z-index: -150;
+    z-index: 2;
   }
 
   .header {
