@@ -5,7 +5,7 @@
         </div>
         <div class="right_part">
             <div class="name">
-                <h1>Name</h1>
+                <h1>{{nameUser}}</h1>
             </div>
             <div class="admin_view">
                 <div class="text">
@@ -27,10 +27,14 @@
 	import ButTime from '../buttons/butTime.vue'
     import ButRep from '../buttons/butRep.vue'
     import ButTasks from '../buttons/butTasks.vue'
+    import { bus } from '../../eventBus.js';
 
 	export default {
 		data() {
 			return {
+                nameUser: "",
+                loginUser: "",
+                roleUser: ""
 			}
 		},
 		components: {
@@ -40,6 +44,14 @@
 		},
         methods: {
             
+        },
+        created () {
+            bus.$on("sendUserData", function(name, login, role) {
+                this.nameUser = name;
+                this.loginUser = login;
+                this.roleUser = role;
+                console.log(this.nameUser);
+            })
         }
 	}
 </script>

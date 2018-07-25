@@ -10,14 +10,14 @@
               <router-view></router-view>
           </div>
       </div>
-
+      <Footer></Footer>
   </div>
 </template>
 
 <script>
   import Header from '../header/Header';
   import Menu from '../menu/Menu';
- 
+  import Footer from '../footer/Footer';
 
   export default {
     data() {
@@ -28,6 +28,7 @@
     components: {
       Header,
       Menu,
+      Footer
     },
   }
 </script>

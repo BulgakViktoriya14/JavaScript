@@ -10,7 +10,7 @@
 	    },
 	    methods: {
 	    	goOnPageDelete() {
-	    		 window.location.href = "/WorkSpace/DeleteUser";
+	    		 window.location.href = "/WorkSpace/Delete";
 	    	}
 	    }
     }

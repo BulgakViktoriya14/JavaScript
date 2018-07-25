@@ -1,5 +1,5 @@
 <template>
-	<textarea type="text" name="task_time"></textarea>
+	<input name="task_time" type="text">
 </template>
 
 <script>

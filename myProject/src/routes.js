@@ -5,6 +5,8 @@ import SignIn from './components/signin/SignIn.vue';
 import WorkSpace from './components/workspace/WorkSpace.vue';
 import Admin from './components/content/ContentAdmin.vue';
 import User from './components/content/ContentUser.vue';
+import CheckIn from './components/content/ContentCheckIn.vue';
+import Delete from './components/content/ContentDelete.vue';
 
 export const routes = [
 	{path: '/', component: SignIn},
@@ -15,5 +17,7 @@ export const routes = [
 			{path: 'Reports', component: Reports},
 			{path: 'Admin', component: Admin},
 			{path: 'User', component: User},
+			{path: 'CheckIn', component: CheckIn},
+			{path: 'Delete', component: Delete},
 	]},
 ]
