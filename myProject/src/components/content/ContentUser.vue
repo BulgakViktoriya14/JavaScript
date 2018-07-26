@@ -45,11 +45,12 @@
             ButTasks
 		},
         methods: {
+
         },
         created() {
             const user = queryString.parse(location.search);
             this.nameUser = user.Name;
-            console.log(store.state.userId);
+            console.log(this.$store.state.userId);
         }
 	}
 </script>

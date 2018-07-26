@@ -9,7 +9,7 @@
            	<div class="border"></div>
             <ReportNote @addNoteReport="noteReport=$event"></ReportNote>
         </div>
-        <input class="report__accept" type="submit" id="send" @click="addReport">
+        <input class="report__accept" type="submit"  id="send" @click="addReport">
    </div>
 </template>
 
@@ -19,6 +19,18 @@ import ReportNote from "../textarea/ReportNote.vue";
 import { bus } from "../../eventBus.js";
 import { getDate } from "../../helpers/date";
 import request from "../../request";
+import swal from "sweetalert2";
+
+const mapOnStatus = {
+  200: Ok,
+  500: BadRequest
+};
+function Ok() {
+  bus.$emit("updateReport");
+}
+function BadRequest() {
+	swal('Ooops...', 'You have a report on this day', 'error');
+}
 export default {
   data() {
     return {
@@ -38,7 +50,9 @@ export default {
         `${this.$root.URL}/api/reports`,
         `Date=${this.date}&MainText=${this.textReport}&Note=${this.noteReport}`
       );
-      bus.$emit("updateReport");
+      xhr.onload = () => {
+        mapOnStatus[xhr.status]();
+      };
     }
   }
 };

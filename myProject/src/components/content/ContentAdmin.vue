@@ -23,14 +23,13 @@
 <script>
 	import AddUser from '../buttons/addUser.vue'
     import DeleteUser from '../buttons/deleteUser.vue'
-    import request from "../../request.js"
+    import request from "../../request"
     import GetListUsers from "../buttons/chooseUsers.vue"
-    import { bus } from '../../eventBus.js';
-    import store from '../../vuex.js';
-
+    import { bus } from '../../eventBus';
 	export default {
 		data() {
-			return {                
+			return {
+                listUsers: []                
 			}
 		},
 		components: {
@@ -42,21 +41,10 @@
             chooseUser(e) {
                 const currentUser = e.target;
                 store.state.userId = currentUser.getAttribute('id');
-                /*bus.$emit("sendUserData",
-                    [
-                        currentUser.innerText, 
-                        currentUser.getAttribute('login'), 
-                        currentUser.getAttribute('role')
-                        currentUser.getAttribute('id')
-                    ]);
-                    */
                 window.location.href = `/WorkSpace/User?Name=${currentUser.innerText}`;
             }
         }
     }
-    
-    //e.target - возврат элемента на котором произошло событие. Т.е. при клике на таймтэйл
-    // можно доставать через e.target id и потом играться с ним
 </script>
 
 <style src="../../styles/admin.css"></style>

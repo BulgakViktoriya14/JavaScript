@@ -1,7 +1,6 @@
 <template>
 	<li class="buttons reports" @click="goOnPageReports">
-        <a href="/WorkSpace/Reports">Reports</a>
-    </li>
+        <a href="">Reports</a>    </li>
 </template>
 <script>
 	export default {
@@ -12,7 +11,7 @@
 	    },
 	    methods: {
 	    	goOnPageReports() {
-	    		 window.location.href = "/WorkSpace/Reports";
+	    		this.$router.push("/WorkSpace/Reports");
 	    	}
 	    }
     }

@@ -1,6 +1,6 @@
 <template>
 	<li class="buttons tasks" @click="goOnPageTasks">
-       <a href="/WorkSpace/Tasks">Tasks</a>
+       <a href="">Tasks</a>
     </li>
 </template>
 <script>
@@ -12,7 +12,7 @@
 	    },
 	    methods: {
 	    	goOnPageTasks() {
-	    		 window.location.href = "/WorkSpace/Tasks";
+	    		 this.$router.push("/WorkSpace/Tasks");
 	    	}
 	    }
     }

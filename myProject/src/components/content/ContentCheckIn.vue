@@ -27,7 +27,6 @@
 	import PasswordUser from '../partOfCheckIn/Password.vue';
 	import {bus} from '../../eventBus';
 	import request from '../../request';
-	
 	export default {
 		data() {
 			return {

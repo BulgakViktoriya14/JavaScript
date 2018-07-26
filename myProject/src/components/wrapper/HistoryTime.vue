@@ -13,13 +13,13 @@
                     </div>
                     <div class="raw_dinner_in times">
                         <div class="time_header">
-                           <p>Early lunch</p>
+                           <p>Start lunch</p>
                         </div>
                         <p class="raw__time-text">{{item.StartLunch}}</p>
                     </div>
                     <div class="raw_dinner_out times" >
                         <div class="time_header">
-                            <p>End of lunch</p>
+                            <p>End lunch</p>
                         </div>
                         <p class="raw__time-text">{{item.EndLunch}}</p>
                     </div>
@@ -36,32 +36,53 @@
 </template>
 
 <script>
-import request from '../../request';
-	export default {
-	data() {
-		return {
-		      items:[]
-		}
-    },
-    created() {
+import request from "../../request";
+import { bus } from "../../eventBus";
+
+function getCurrentTimetableID(element) {
+  while (element.parentNode.getAttribute("class") != "raw")
+    element = element.parentNode;
+  const root = element.parentNode;
+  return root.children[0].getAttribute("value");
+}
+
+function getTimetablesWithParsedLunch(timetables) {
+  for (let timetable of timetables) {
+    let [startLunch, endLunch] = [null, null];
+    if (timetable.Lunch) [startLunch, endLunch] = timetable.Lunch.split("@");
+    timetable.StartLunch = startLunch;
+    timetable.EndLunch = endLunch;
+  }
+  return timetables;
+}
+export default {
+  data() {
+    return {
+      items: []
+    };
+  },
+  created() {
+    bus.$on("loadTimetables", timetables => {
+      this.items = getTimetablesWithParsedLunch(timetables);
+    });
+    bus.$on("updateTimetable", () => {
         const xhr = request('GET', `${this.$root.URL}/api/timetables`, null);
         xhr.onload = () => {
             if (xhr.status === 200) {
-                const data = JSON.parse(xhr.responseText);
-                let [startLunch, endLunch] = [null, null];
-                if (data.Lunch) [startLunch, endLunch] = data.Lunch.parse('@');
-                data.StartLunch = startLunch;
-                data.EndLunch = endLunch; 
-                this.items = data;
+                const timetables = JSON.parse(xhr.responseText);
+                this.items = getTimetablesWithParsedLunch(timetables);
             }
         }
-    },
-    methods : {
-        clickOnRecord() {
-            
-        }
+    });
+  },
+  methods: {
+    clickOnRecord(e) {
+      const id = getCurrentTimetableID(e.target);
+      const timetable = this.items.find(elem => elem.id == id);
+      bus.$emit("takeTimetable", timetable);
     }
-}
+  }
+};
 </script>
 
 <style>
