@@ -10,7 +10,7 @@
             </div>
             <div class="names" id="users_name" @click="chooseUser">
                 <span>
-                    <p login='user1' role='user' id="id" >Иванов Иван</p>
+                    <p login='user1' role='user' id="id">Иванов Иван</p>
                 </span>
             </div>
             <div class="buttons">
@@ -26,12 +26,11 @@
     import request from "../../request.js"
     import GetListUsers from "../buttons/chooseUsers.vue"
     import { bus } from '../../eventBus.js';
+    import store from '../../vuex.js';
 
 	export default {
 		data() {
-			return {
-                listUsers: [],
-                
+			return {                
 			}
 		},
 		components: {
@@ -42,11 +41,13 @@
         methods: {
             chooseUser(e) {
                 const currentUser = e.target;
+                store.state.userId = currentUser.getAttribute('id');
                 /*bus.$emit("sendUserData",
                     [
                         currentUser.innerText, 
                         currentUser.getAttribute('login'), 
                         currentUser.getAttribute('role')
+                        currentUser.getAttribute('id')
                     ]);
                     */
                 window.location.href = `/WorkSpace/User?Name=${currentUser.innerText}`;

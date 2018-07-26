@@ -28,7 +28,8 @@ const mapOnStatus = {
 };
 const mapOnRole = {
   'admin' : '/WorkSpace/Admin',
-  'user' : '/WorkSpace/User'
+  'user' : '/WorkSpace/User',
+  'helper' : '/WorkSpace/User'
 };
 function Ok(role) {
     window.location.href = mapOnRole[role];

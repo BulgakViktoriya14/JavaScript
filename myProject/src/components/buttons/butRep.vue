@@ -1,6 +1,6 @@
 <template>
 	<li class="buttons reports" @click="goOnPageReports">
-        <a href="">Reports</a>
+        <a href="/WorkSpace/Reports">Reports</a>
     </li>
 </template>
 <script>

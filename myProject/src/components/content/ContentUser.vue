@@ -29,6 +29,8 @@
     import ButTasks from '../buttons/butTasks.vue'
     import { bus } from '../../eventBus.js';
     import queryString from 'query-string';
+    import store from '../../vuex.js';
+    
 	export default {
 		data() {
 			return {
@@ -43,11 +45,11 @@
             ButTasks
 		},
         methods: {
-            
         },
         created() {
             const user = queryString.parse(location.search);
             this.nameUser = user.Name;
+            console.log(store.state.userId);
         }
 	}
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<li class="buttons time" @click="goOnPageTime">
-        <a href="">Work Time</a>
+        <a href="/WorkSpace/WorkTime">Work Time</a>
      </li>
 </template>
 <script>
@@ -11,8 +11,8 @@
 	      }
 	    },
 	    methods: {
-	    	goOnPageTime() {
-	    		 window.location.href = "/WorkSpace/WorkTime";
+	    	goOnPageTime() {	
+	    		window.location.href = "/WorkSpace/WorkTime";
 	    	}
 	    }
     }

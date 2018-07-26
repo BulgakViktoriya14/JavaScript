@@ -7,7 +7,7 @@
 	export default {
 	    data() {
 	      return {
-	         
+	         listUsers: []
 	      }
 	    },
 	    methods: {

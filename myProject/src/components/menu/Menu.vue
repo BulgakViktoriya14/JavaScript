@@ -33,6 +33,7 @@
 <script>
     import ImgLogo from '../img/ImgLogo.vue';
     import { bus } from '../../eventBus.js';
+    import request from "../../request.js"
     
     export default {
         data() {
@@ -73,7 +74,19 @@
             }
           },
           goOnCabinet() {
-             window.location.href = '/WorkSpace/User';
+            const xhr = request(
+                "GET",
+                `${this.$root.URL}/api/users`
+            );
+            xhr.onload = function() {
+                let currUser = JSON.parse(xhr.responseText);
+                if(currUser.Role == "admin") {
+                    window.location.href = `/WorkSpace/Admin?Name=${currUser.Name}`;
+                }
+                if(currUser.Role == "user" || currUser.Role == "helper") {
+                    window.location.href == `/WorkSpace/User?Name=${currUser.Name}`;
+                }
+            } 
           }
         }
     }
