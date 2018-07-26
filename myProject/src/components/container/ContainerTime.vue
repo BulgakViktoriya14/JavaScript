@@ -32,23 +32,25 @@ export default {
       ID: null,
       startLunch: null,
       endLunch: null,
-      date: getDate(),
-      time: getTime()
-    };
+      date: getDate()
+    };s
   },
   created() {
     bus.$on("takeTimetable", data => {
       this.ID = data.id;
-      this.startLunch = data.StartLunch ? data.StartLunch : "";
-      this.endLunch = data.EndLunch ? data.EndLunch : "";
+      this.startLunch = data.StartLunch || "";
+      this.endLunch = data.EndLunch || "";
     });
   },
   methods: {
     changeTimeTable(e) {
       let parameter = e.target.getAttribute("id");
-      const time = getValueOfParam(parameter, this.time, this.startLunch, this.endLunch);
+      const time = getValueOfParam(parameter, getTime(), this.startLunch, this.endLunch);
       if (parameter.indexOf("Lunch") > -1) parameter = "Lunch";
       const xhr = request("PUT",`${this.$root.URL}/api/timetables/${this.ID}`, `${parameter}=${time}`);
+      xhr.onload = () => {
+          if (xhr.status === 200) bus.$emit('updateTimetable');
+      }
     }
   }
 };

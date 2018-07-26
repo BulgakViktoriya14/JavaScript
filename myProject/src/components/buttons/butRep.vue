@@ -12,7 +12,7 @@
 	    },
 	    methods: {
 	    	goOnPageReports() {
-	    		 window.location.href = "/WorkSpace/Reports";
+	    		this.$router.push("/WorkSpace/Reports");
 	    	}
 	    }
     }

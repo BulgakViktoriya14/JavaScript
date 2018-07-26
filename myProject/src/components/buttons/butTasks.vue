@@ -12,7 +12,7 @@
 	    },
 	    methods: {
 	    	goOnPageTasks() {
-	    		 window.location.href = "/WorkSpace/Tasks";
+	    		 this.$router.push("/WorkSpace/Tasks");
 	    	}
 	    }
     }

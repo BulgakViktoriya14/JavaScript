@@ -4,16 +4,14 @@
      </li>
 </template>
 <script>
-	export default {
-	    data() {
-	      return {
-	         
-	      }
-	    },
-	    methods: {
-	    	goOnPageTime() {
-	    		 window.location.href = "/WorkSpace/WorkTime";
-	    	}
-	    }
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    goOnPageTime() {
+      this.$router.push("/WorkSpace/WorkTime");
     }
+  }
+};
 </script>

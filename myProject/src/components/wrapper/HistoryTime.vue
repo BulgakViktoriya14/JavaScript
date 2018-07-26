@@ -38,6 +38,7 @@
 <script>
 import request from "../../request";
 import { bus } from "../../eventBus";
+
 function getCurrentTimetableID(element) {
   while (element.parentNode.getAttribute("class") != "raw")
     element = element.parentNode;
@@ -45,6 +46,15 @@ function getCurrentTimetableID(element) {
   return root.children[0].getAttribute("value");
 }
 
+function getTimetablesWithParsedLunch(timetables) {
+  for (let timetable of timetables) {
+    let [startLunch, endLunch] = [null, null];
+    if (timetable.Lunch) [startLunch, endLunch] = timetable.Lunch.split("@");
+    timetable.StartLunch = startLunch;
+    timetable.EndLunch = endLunch;
+  }
+  return timetables;
+}
 export default {
   data() {
     return {
@@ -52,19 +62,18 @@ export default {
     };
   },
   created() {
-    const xhr = request("GET", `${this.$root.URL}/api/timetables`, null);
-    xhr.onload = () => {
-      if (xhr.status === 200) {
-        const timetables = JSON.parse(xhr.responseText);
-        for (let timetable of timetables) {
-          let [startLunch, endLunch] = [null, null];
-          if (timetable.Lunch) [startLunch, endLunch] = timetable.Lunch.split("@");
-          timetable.StartLunch = startLunch;
-          timetable.EndLunch = endLunch;
+    bus.$on("loadTimetables", timetables => {
+      this.items = getTimetablesWithParsedLunch(timetables);
+    });
+    bus.$on("updateTimetable", () => {
+        const xhr = request('GET', `${this.$root.URL}/api/timetables`, null);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const timetables = JSON.parse(xhr.responseText);
+                this.items = getTimetablesWithParsedLunch(timetables);
+            }
         }
-        this.items = timetables;
-      }
-    };
+    });
   },
   methods: {
     clickOnRecord(e) {

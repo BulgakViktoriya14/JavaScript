@@ -19,21 +19,21 @@ import { getDate } from "../../helpers/date";
 export default {
   data() {
     return {
-        items: [],
+      items: [],
       date: getDate()
     };
   },
   methods: {},
   created() {
-    bus.$on("load", (arr) => {
-        this.items = arr;      
-    }),
-      bus.$on("updateReport", () => {
-        const xhr = request("GET", `${this.$root.URL}/api/reports`);
-        xhr.onload = function() {
-          this.items = JSON.parse(xhr.responseText);
-        };
-      });
+    bus.$on("loadReports", arr => {
+      this.items = arr;
+    });
+    bus.$on("updateReport", () => {
+      const xhr = request("GET", `${this.$root.URL}/api/reports`, null);
+      xhr.onload = function() {
+        this.items = JSON.parse(xhr.responseText);
+      };
+    });
   }
 };
 </script>
