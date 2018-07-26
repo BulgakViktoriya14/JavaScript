@@ -8,11 +8,7 @@
 <script>
 import {bus} from '../../eventBus';
 	export default {
-	data() {
-		return {
-			valEmail:""
-		}
-	},
+	data() {},
 	methods : {
 		emailChange(e) {
 			bus.$emit('emailChange', e.target.value);

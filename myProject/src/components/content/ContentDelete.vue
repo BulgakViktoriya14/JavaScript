@@ -6,15 +6,14 @@
           </div>
         <p class="found">{{statusSearch}}</p>
         <div class="del_buttons">
-            <button type="delete">Delete</button>
-            <button type="cancel">Cancel</button>
+            <button type="delete" @click="deleteUser">Delete</button>
+            <button type="cancel" @click="goOnPageAdmin">Cancel</button>
         </div>
     </div>  
 </template>
 
 <script>
     import request from "../../request.js";
-
 	export default {
 		data() {
 			return {
@@ -26,13 +25,23 @@
             findUser(event) {
                 this.person =  event.target.value;
                 const xhr = request(
-                    "POST",
+                    "GET",
                     `${this.$root.URL}/api/users`,
                     `Login=${this.person}`
                 );
                 xhr.onload = function() {
                     xhr.status == 200 ? this.statusSearch = "User found" : this.statusSearch = "User not found";
                 }
+            },
+            deleteUser() {
+                const xhr = request(
+                    "DELETE",
+                    `${this.$root.URL}/api/users`,
+                    
+                );
+            },
+            goOnPageAdmin() {
+                window.location.href = '/WorkSpace/Admin';
             }
         }
 	}

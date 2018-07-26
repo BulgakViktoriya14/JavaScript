@@ -1,7 +1,7 @@
 <template>
 <div>
         <div class="report__date">
-            <h1>{{date}}</h1> 
+            <p>{{date}}</p> 
         </div>
         <div class="time_buttons" @click="changeTimeTable" >
             <button id="In">Has come</button>

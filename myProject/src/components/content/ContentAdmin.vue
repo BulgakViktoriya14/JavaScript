@@ -11,12 +11,12 @@
             <div class="names" id="users_name" @click="chooseUser">
                 <span>
                     <p login='user1' role='user'>Иванов Иван</p>
-                    
                 </span>
             </div>
             <div class="buttons">
                 <AddUser></AddUser>
                 <DeleteUser></DeleteUser>
+                <LogOut></LogOut>
             </div>
         </div>
 </template>
@@ -27,6 +27,7 @@
     import request from "../../request.js"
     import GetListUsers from "../buttons/chooseUsers.vue"
     import { bus } from '../../eventBus.js';
+    import LogOut from '../buttons/logOut.vue'
 
 	export default {
 		data() {
@@ -38,24 +39,18 @@
 		components: {
 			AddUser,
             DeleteUser,
-            GetListUsers
+            GetListUsers,
+            LogOut
 		},
         methods: {
             chooseUser(e) {
                 const currentUser = e.target;
-                bus.$emit("sendUserData",
-                    [
-                        currentUser.innerText, 
-                        currentUser.getAttribute('login'), 
-                        currentUser.getAttribute('role')
-                    ]);
-                window.location.href = `/WorkSpace/User`;
+                this.$store.commit('setName', currentUser.innerText);
+                this.$store.commit('setId', currentUser.getAttribute('userID'));
+                this.$router.push('/WorkSpace/User');
             }
         }
     }
-    
-    //e.target - возврат элемента на котором произошло событие. Т.е. при клике на таймтэйл
-    // можно доставать через e.target id и потом играться с ним
 </script>
 
 <style src="../../styles/admin.css"></style>

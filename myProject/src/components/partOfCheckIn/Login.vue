@@ -6,20 +6,16 @@
 </template>
 
 <script>
-import {bus} from '../../eventBus';
-	
-	export default {
-	data() {
-		return {
-			valLogin: ""
-		}
-	},
-	methods : {
-		loginChange(e) {
-			bus.$emit('loginChange', e.target.value);
-		}
-	}
-}
+import { bus } from "../../eventBus";
+
+export default {
+  data() {},
+  methods: {
+    loginChange(e) {
+      bus.$emit("loginChange", e.target.value);
+    }
+  }
+};
 </script>
 
 <style>

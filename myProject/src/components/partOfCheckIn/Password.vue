@@ -12,21 +12,16 @@
 </template>
 
 <script>
-import {bus} from '../../eventBus';
-	
-	export default {
-	data() {
-		return {
-			valPassw:'',
-			valRepPassw:''
-		}
-	},
-	methods : {
-		passwordChange(e) {
-			bus.$emit('passwordChange', e.target.value);
-		}
-	}
-}
+import { bus } from "../../eventBus";
+
+export default {
+  data() {},
+  methods: {
+    passwordChange(e) {
+      bus.$emit("passwordChange", e.target.value);
+    }
+  }
+};
 </script>
 
 <style>

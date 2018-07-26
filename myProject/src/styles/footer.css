@@ -4,9 +4,9 @@
   padding: 10px;
   padding-right: 30px;
   color:#fff;
+   bottom:0;
+  left:0;
   position: fixed;
-  bottom:0;
-  left: 0;
 }
 
 body {
@@ -20,4 +20,15 @@ body {
 .footer p{
   font-size: 1.6rem;
   font-family: 'Open Sans', sans-serif;
+}
+
+@media screen and (max-width:740px){
+  .footer{
+    height: 40px;
+    padding: 0;
+  }
+  .footer p{
+    margin-right: 10px;
+    font-size: 1.4rem;
+  }
 }

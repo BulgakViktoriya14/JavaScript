@@ -7,24 +7,21 @@
 </template>
 
 <script>
+import OldReports from "../wrapper/OldReports.vue";
+import ContainerReport from "../container/ContainerReport.vue";
 
-	import OldReports from '../wrapper/OldReports.vue';
-	import ContainerReport from '../container/ContainerReport.vue';
-	
-	export default {
-		data() {
-			return {
-				title : "Work Reports",
-			}
-		},
-		components: {
-			OldReports,
-			ContainerReport
-		},
-		methods: {
-			
-		}
-	}
+export default {
+  data() {
+    return {
+      title: "Work Reports"
+    };
+  },
+  components: {
+    OldReports,
+    ContainerReport
+  },
+  methods: {}
+};
 </script>
 
 <style src="../../styles/report.css"></style>

@@ -155,9 +155,6 @@
           /* animation solely on background-size */
           transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
       }
-      
-      
-      
       .border{
         margin-top: 5px;
         margin-bottom: 5px;
@@ -183,19 +180,15 @@
         max-width: 22%;
       }
 
-      .type-search {
-        width: 17vw;
-        margin: 10px auto;
+      .type-search{
+        font-size: 1.6rem;
+        width: 250px;
+        margin: 0px auto;
         display: block;
-        padding: 4vh;
+      }
+      .type-search option {
         font-size: 1.6rem;
       }
-      [name="task_time"], [name="task_note"], [name="task_text"]{
-        width: 100%;
-        margin: 10px auto;
-        display: block;
-      }
-      
       [type="submit"] {
         width: 200px;
         height: 50px;

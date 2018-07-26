@@ -25,15 +25,13 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 10px 0;
     padding-left: 100px;
   }
 
   .header__user {
+    padding-top: 5px;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid #fff;
+    border-radius: 50%; 
     overflow: hidden;
     cursor: pointer;
     margin-right: 50px;
@@ -55,5 +53,26 @@
     .top_menu{
       height: 40px;
       min-height: 40px;
+      min-width: 100%;
     }
+
+    .header{
+      padding-left: 45px;
+    }
+
+    .header .name{
+      width:100%;
+      margin:0;
+    }
+
+    .name h1{
+      text-align: center;
+    }
+
+    .header__user{
+      padding-top: 0;
+      width: 40px;
+      margin-right: 10px;
+    }
+
   }
