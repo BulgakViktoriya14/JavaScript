@@ -10,7 +10,7 @@ export default {
   methods: {
     getListUsers() {
       const xhr = request("GET", `${this.$root.URL}/api/users`);
-      xhr.onload = function() {
+      xhr.onload = ()=> {
         let divUsers = document.getElementById("users_name");
         while (divUsers.firstChild) divUsers.removeChild(divUsers.firstChild);
         this.listUsers = JSON.parse(xhr.responseText);

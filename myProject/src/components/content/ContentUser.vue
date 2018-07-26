@@ -50,7 +50,7 @@
             LogOut
 		},
         methods: {
-            
+
         },
         created() {
           const id = this.$store.getters.getId;  

@@ -9,9 +9,6 @@
                 <GetListUsers></GetListUsers>
             </div>
             <div class="names" id="users_name" @click="chooseUser">
-                <span>
-                    <p login='user1' role='user'>Иванов Иван</p>
-                </span>
             </div>
             <div class="buttons">
                 <AddUser></AddUser>
@@ -24,7 +21,7 @@
 <script>
 	import AddUser from '../buttons/addUser.vue'
     import DeleteUser from '../buttons/deleteUser.vue'
-    import request from "../../request.js"
+    import request from "../../request"
     import GetListUsers from "../buttons/chooseUsers.vue"
     import { bus } from '../../eventBus.js';
     import LogOut from '../buttons/logOut.vue'
@@ -32,8 +29,7 @@
 	export default {
 		data() {
 			return {
-                listUsers: [],
-                
+                listUsers: []                
 			}
 		},
 		components: {
