@@ -2,124 +2,71 @@
 @import url(header.css);
 @import url(footer.css);
 @import url(main.css);
-p,
-input,
-textarea,
-[type="submit"],
-button {
-  font-size: 1.6rem;
-  font-family: 'Open Sans', sans-serif;
-}
-
-h1,
-h2,
-p {
-  display: block;
-  font-family: 'Open Sans';
-}
-
-h2 {
-  margin-top: 40px;
-  display: inline-block;
-  padding: 5px 20px;
-  font-size: 3.6rem;
-  color: #fff;
-  background: #36b871;
-}
-
-button,
-[type="submit"] {
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
-button {
-  background-color: #4CAF50;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-button {
-  background-color: white;
-  color: black;
-  border: 2px solid #36b871;
-}
-
-button:hover {
-  background-color: #36b871;
-  color: white;
-}
+  p, input, textarea, [type="submit"], button {
+    font-size: 1.6rem;
+    font-family: 'Open Sans', sans-serif;
+  }
 
 .now__date {
   margin-bottom: 15px;
 }
 
-.now__date p {
-  font-size: 2.4rem;
-  font-weight: bold;
-}
+  h2 {
+      margin-top: 40px;
+    display: inline-block;
+    padding: 5px 20px;
+    font-size: 3.6rem;
+    color: #fff;
+    background: #36b871;
+  }
+  
+  button, [type="submit"] {
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  
 
-.button {
-  background-color: #4CAF50;
-  /* Green */
-  border: none;
-  color: white;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  -webkit-transition-duration: 0.4s;
-  /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 
-.button {
-  background-color: white;
-  color: black;
-  border: 2px solid #36b871;
-}
-
-.button:hover {
-  background-color: #36b871;
-  color: white;
-}
-
-.time_buttons {
-  text-align: center;
-}
-
-.time_buttons button {
-  margin-left: 30px;
-  background-color: white;
-  color: black;
-  border: 2px solid #36b871;
-  height: 70px;
-  width: 250px;
-  font-size: 2.0em;
-}
-
-.timetable {
-  padding-top: 30px;
-  position: relative;
-}
+    button{
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        margin-top : 20px; 
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    button{
+        background-color: white; 
+        color: black; 
+        border: 2px solid #36b871;
+    }
+    button:hover{
+        background-color: #36b871;
+        color: white;
+    }
+    
+    
+    .now__date {
+        margin-bottom: 15px;
+      }
+      
+      .now__date p {
+        font-size: 2.4rem;
+        font-weight: bold;
+      }
+     
+      
+    
 
 .timetable::before {
   content: "";
@@ -135,15 +82,59 @@ button:hover {
   margin-left: 50px;
 }
 
-.raw {
-  margin: 0px 0px 60px;
-}
+    .time_buttons{
+        text-align: center;
+    }
+    .time_buttons button{
+        margin-left:30px;
+         background-color: white; 
+        color: black; 
+        border: 2px solid #36b871;
+         height: 70px;
+        width: 250px;
+        font-size: 2.0em;
+    }
 
-.raw__date {
-  font-size: 2.4rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
+    .time_buttons button:hover{
+         background-color: #36b871;
+          color: white;
+    }
+
+    .timetable {
+        padding-top: 30px;
+        position: relative;
+      }
+      
+      .timetable::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1%;
+        height: 100%;
+        background: #36b871;
+      }
+      
+      .raw__list {
+        margin-left: 50px;
+      }
+      
+      .raw {
+        margin: 0px 0px 60px;
+      }
+      
+      .raw__date {
+        font-size: 2.4rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+    
+      .times{
+        padding-right:10px; 
+        padding-left:10px;
+        text-align: center;
+        width: 200px; 
+      }
 
 .times {
   padding-right: 10px;
@@ -176,12 +167,8 @@ button:hover {
   padding-top: 10px;
 }
 
-.raw__time-text {
-  font-size: 1.3em;
-  margin-top: 20px;
-}
-
-.time_buttons button:hover {
-  background-color: #36b871;
-  color: white;
-}
+      .raw__time-text{
+          
+          font-size: 1.3em;
+          margin-top: 20px;
+      }

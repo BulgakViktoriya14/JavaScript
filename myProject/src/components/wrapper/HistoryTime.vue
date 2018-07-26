@@ -1,7 +1,7 @@
 <template>
 	<div class="old_reports">
-        <div class="raw__list" @click="clickOnRecord">
-            <div class="raw" v-for="item of items" :key="item.id">
+        <div class="raw__list">
+            <div class="raw" v-for="item of items" :key="item.id" @click="clickOnRecord">
                 <input type="hidden" :value="item.id"/>
                 <p class="raw__date">{{item.Date}}</p>
                 <div class="raw__time">

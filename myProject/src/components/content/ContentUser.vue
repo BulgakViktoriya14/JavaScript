@@ -28,7 +28,9 @@
     import ButRep from '../buttons/butRep.vue'
     import ButTasks from '../buttons/butTasks.vue'
     import { bus } from '../../eventBus.js';
-
+    import queryString from 'query-string';
+    import store from '../../vuex.js';
+    
 	export default {
 		data() {
 			return {
@@ -43,15 +45,12 @@
             ButTasks
 		},
         methods: {
-            
+
         },
         created() {
-            bus.$on("sendUserData", ([name, login, role]) => {
-                this.nameUser = name;
-                this.loginUser = login;
-                this.roleUser = role;
-                console.log(this.nameUser);
-            })
+            const user = queryString.parse(location.search);
+            this.nameUser = user.Name;
+            console.log(this.$store.state.userId);
         }
 	}
 </script>

@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <div class="task__date">
-            <p>{{date}}</p>         
+            <h1>{{date}}</h1>          
         </div>
         <div class="task__inputs">
         	<TaskUser></TaskUser>

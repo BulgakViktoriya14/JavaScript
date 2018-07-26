@@ -1,7 +1,6 @@
 <template>
 	<li class="buttons reports" @click="goOnPageReports">
-        <a href="">Reports</a>
-    </li>
+        <a href="">Reports</a>    </li>
 </template>
 <script>
 	export default {

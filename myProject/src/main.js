@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
 import { routes } from './routes.js';
-
+import {store} from './vuex';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
@@ -13,9 +13,10 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   data: {
-  	URL: "http://localhost:3030",
+  	URL: "http://laptev-pc:3030",
   	reports:[]
   },
   router,
+  store,
   render: h => h(App),
 })

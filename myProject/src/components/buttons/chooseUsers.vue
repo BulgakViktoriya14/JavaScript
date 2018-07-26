@@ -2,19 +2,17 @@
 	<button type="users" @click="getListUsers">Users:</button>
 </template>
 <script>
-	import request from "../../request.js";
+	import request from "../../request";
+
 	export default {
 	    data() {
 	      return {
-	         
+	         listUsers: []
 	      }
 	    },
 	    methods: {
 	    	getListUsers() {
-                const xhr = request (
-                 "GET",
-                 `${this.$root.URL}/api/users`,
-                )
+                const xhr = request ("GET", `${this.$root.URL}/api/users`, null);
                 xhr.onload = function() {
                     let divUsers = document.getElementById("users_name");
                     this.listUsers =  JSON.parse(xhr.responseText);

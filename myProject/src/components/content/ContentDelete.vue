@@ -6,8 +6,8 @@
           </div>
         <p class="found">{{statusSearch}}</p>
         <div class="del_buttons">
-            <button type="delete">Delete</button>
-            <button type="cancel">Cancel</button>
+            <button type="delete" @click="deleteUser">Delete</button>
+            <button type="cancel" @click="goOnPageAdmin">Cancel</button>
         </div>
     </div>  
 </template>
@@ -33,6 +33,16 @@
                 xhr.onload = function() {
                     xhr.status == 200 ? this.statusSearch = "User found" : this.statusSearch = "User not found";
                 }
+            },
+            deleteUser() {
+                const xhr = request(
+                    "DELETE",
+                    `${this.$root.URL}/api/users`,
+                    
+                );
+            },
+            goOnPageAdmin() {
+                window.location.href = '/WorkSpace/Admin';
             }
         }
 	}
