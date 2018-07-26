@@ -13,13 +13,13 @@
                     </div>
                     <div class="raw_dinner_in times">
                         <div class="time_header">
-                           <p>Early lunch</p>
+                           <p>Start lunch</p>
                         </div>
                         <p class="raw__time-text">{{item.StartLunch}}</p>
                     </div>
                     <div class="raw_dinner_out times" >
                         <div class="time_header">
-                            <p>End of lunch</p>
+                            <p>End lunch</p>
                         </div>
                         <p class="raw__time-text">{{item.EndLunch}}</p>
                     </div>

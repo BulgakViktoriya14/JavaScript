@@ -5,8 +5,8 @@
         </div>
         <div class="time_buttons" @click="changeTimeTable" >
             <button id="In">Has come</button>
-            <button id="startLunch">Early lunch</button>
-            <button id="endLunch">End of lunch</button>
+            <button id="startLunch">Start lunch</button>
+            <button id="endLunch">End lunch</button>
             <button id="Out">Gone</button>
         </div>
 </div>
