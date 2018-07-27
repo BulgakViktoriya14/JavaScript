@@ -10,7 +10,7 @@
             </div>
             <div class="names" id="users_name" @click="chooseUser">
             </div>
-            <div class="buttons">
+            <div class="buttonsAdmin">
                 <AddUser></AddUser>
                 <DeleteUser></DeleteUser>
                 <LogOut></LogOut>

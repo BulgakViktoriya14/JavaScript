@@ -8,8 +8,10 @@ export default {
   data() {
     return {};
   },
+  props: ["login"],
   methods: {
     goOnPageTime() {
+			this.$store.commit('setLogin', this.login);
       this.$router.push("/WorkSpace/WorkTime");
     }
   }

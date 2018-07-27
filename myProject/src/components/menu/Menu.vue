@@ -33,29 +33,15 @@
 <script>
 import ImgLogo from "../img/ImgLogo.vue";
 import { bus } from "../../eventBus";
-import request from "../../request";
-import { capitalize } from "../../helpers/format";
-
+import setData from "../../helpers/data";
 export default {
-  data() {
-    return {
-      data: [],
-      getContent: (path, arr) => {
-        const xhr = request("GET", `${this.$root.URL}/api/${path}`, null);
-        xhr.onload = function() {
-          arr = JSON.parse(xhr.responseText);
-          path = capitalize(path); //example : "timetables" -> "Timetables"
-          bus.$emit(`load${path}`, arr);
-        };
-      }
-    };
-  },
+  data() { return {} },
   components: {
     ImgLogo
   },
   methods: {
     choosePage(e) {
-      this.getContent(e.target.getAttribute("id"), this.data);
+      setData(e.target.getAttribute("id"), this.$root.URL);
     },
     goOnCabinet() {
       window.location.href = "/WorkSpace/User";

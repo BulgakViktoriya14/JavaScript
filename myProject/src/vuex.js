@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -11,7 +12,7 @@ export const store = new Vuex.Store({
   },
   mutations: {
     setName(state, name) {
-        state.currentName = name;
+      state.currentName = name;
     },
     setId(state, id) {
       state.currentId = id;
@@ -28,5 +29,5 @@ export const store = new Vuex.Store({
     getId: (state) => state.currentId,
     getRole: (state) => state.currentRole,
     getName: (state) => state.currentName
-  }
+  },
 })

@@ -66,13 +66,13 @@ export default {
       this.items = getTimetablesWithParsedLunch(timetables);
     });
     bus.$on("updateTimetable", () => {
-        const xhr = request('GET', `${this.$root.URL}/api/timetables`, null);
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const timetables = JSON.parse(xhr.responseText);
-                this.items = getTimetablesWithParsedLunch(timetables);
-            }
+      const xhr = request("GET", `${this.$root.URL}/api/timetables`, null);
+      xhr.onload = () => {
+        if (xhr.status === 200) {
+          const timetables = JSON.parse(xhr.responseText);
+          this.items = getTimetablesWithParsedLunch(timetables);
         }
+      };
     });
   },
   methods: {

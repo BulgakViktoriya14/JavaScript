@@ -20,7 +20,7 @@ import Login from "../input/Login.vue";
 import Password from "../input/Password.vue";
 import { bus } from "../../eventBus";
 import request from "../../request";
-import swal from "sweetalert2";
+//import swal from "sweetalert2";
 
 const mapOnStatus = {
   200 : Ok,
@@ -35,7 +35,7 @@ function Ok(role) {
     window.location.href = mapOnRole[role];
 }
 function BadRequest() {
-    swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
+  //  swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
 }
 export default {
   data() {

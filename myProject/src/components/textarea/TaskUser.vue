@@ -1,5 +1,5 @@
 <template>
-	 <div class="users">
+	 <div class="users_task">
          <select class="type-search" multiple size="3" type="text">
                 <option value="u1">User1</option>
                 <option value="u2">User2</option>
