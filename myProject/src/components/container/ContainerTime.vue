@@ -49,7 +49,14 @@ export default {
       if (parameter.indexOf("Lunch") > -1) parameter = "Lunch";
       const xhr = request("PUT",`${this.$root.URL}/api/timetables/${this.ID}`, `${parameter}=${time}`);
       xhr.onload = () => {
-          if (xhr.status === 200) bus.$emit('updateTimetable');
+          if (xhr.status === 200) {
+              if (parameter === 'Lunch') {
+                  const lunchTimes = time.split('@');
+                  this.startLunch = lunchTimes[0];
+                  this.endLunch = lunchTimes[1];
+              }
+              bus.$emit('updateTimetable');
+            }
       }
     }
   }

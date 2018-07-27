@@ -13,8 +13,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   data: {
-  	URL: "http://laptev-pc:3030",
-  	reports:[]
+  	URL: "http://laptev-pc:3030"
   },
   router,
   store,
