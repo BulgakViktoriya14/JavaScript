@@ -9,7 +9,8 @@
 	            <SurnameUser></SurnameUser>
 	            <EmailUser></EmailUser>
 	            <LoginUser></LoginUser>
-	            <PasswordUser></PasswordUser>           
+	            <PasswordUser></PasswordUser> 
+	            <ChooseType></ChooseType>          
 	        </div>
 	      	<div class="reg_buttons">
 	            <button type="save" @click="registrate">Save</button>
@@ -27,6 +28,7 @@
 	import PasswordUser from '../partOfCheckIn/Password.vue';
 	import {bus} from '../../eventBus';
 	import request from '../../request';
+	import ChooseType from '../partOfCheckIn/chooseType.vue';
 	export default {
 		data() {
 			return {
@@ -34,7 +36,8 @@
 				surname : "",
 				email : "",
 				login : "",
-				password: ""
+				password: "",
+				role: ""
 			}
 		},
 		components: {
@@ -42,7 +45,8 @@
 			SurnameUser,
 			EmailUser,
 			LoginUser,
-			PasswordUser
+			PasswordUser,
+			ChooseType
 		},
 		created() {
 			bus.$on('nameChange', data => this.name = data );
@@ -50,10 +54,11 @@
 			bus.$on('loginChange', data => this.login = data);
 			bus.$on('emailChange', data => this.email = data);
 			bus.$on('passwordChange', data => this.password = data);
+			bus.$on('roleChange', data => this.role = data);
 		},
 		methods : {
 			registrate() {
-				const xhr = request('POST', `${this.$root.URL}/api/users`, `Login=${this.login}&Name=${this.surname} ${this.name}&Email=${this.email}&Password=${this.password}&Role=user`);
+				const xhr = request('POST', `${this.$root.URL}/api/users`, `Login=${this.login}&Name=${this.surname} ${this.name}&Email=${this.email}&Password=${this.password}&Role=${this.role}`);
 				xhr.onload = () => {
 					if (xhr.status === 200) window.location.href = '/WorkSpace/Admin';
 				}

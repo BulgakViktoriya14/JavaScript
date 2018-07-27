@@ -1,7 +1,7 @@
 <template>
 	<div class="container">
         <div class="report__date">
-            <h1>{{date}}</h1>      
+            <p>{{date}}</p>      
         </div>
         <div class="report__inputs">
             <ReportText @addTextReport="textReport=$event"></ReportText>

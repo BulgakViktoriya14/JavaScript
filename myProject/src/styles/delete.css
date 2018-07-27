@@ -21,7 +21,7 @@
     font-weight: bold;
 }
 
-.delete input{
+.log_input{
     margin-left:70px;
     float: right;
 }
@@ -92,4 +92,26 @@ input{
 input:focus {
     background-size: 100% 2px, 100% 1px;
     outline: none;
+}
+
+
+@media screen and (max-width:740px){
+    .delete{
+        min-width:100%;
+    }
+    .find p{
+        display:block;
+        text-align: center;
+    }
+
+    .found{
+        text-align: center;
+        font-size: 1.2rem;
+        color: black;
+    }
+    .log_input{
+        text-align: center;
+        float: none;
+        margin: 0;
+    }
 }

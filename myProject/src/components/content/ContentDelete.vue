@@ -14,7 +14,6 @@
 
 <script>
     import request from "../../request.js";
-
 	export default {
 		data() {
 			return {
@@ -26,7 +25,7 @@
             findUser(event) {
                 this.person =  event.target.value;
                 const xhr = request(
-                    "POST",
+                    "GET",
                     `${this.$root.URL}/api/users`,
                     `Login=${this.person}`
                 );

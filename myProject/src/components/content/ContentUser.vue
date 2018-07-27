@@ -4,8 +4,13 @@
             <img class="avatar" src="../../img/avatar.jpg">
         </div>
         <div class="right_part">
-            <div class="name">
-                <h1>{{nameUser}}</h1>
+            <div class="right_contains">
+                <div class="name">
+                    <h1>{{name}}</h1>
+                </div>
+                <div class="log_out">
+                    <LogOut></LogOut>
+                </div>
             </div>
             <div class="admin_view">
                 <div class="text">
@@ -27,30 +32,32 @@
 	import ButTime from '../buttons/butTime.vue'
     import ButRep from '../buttons/butRep.vue'
     import ButTasks from '../buttons/butTasks.vue'
-    import { bus } from '../../eventBus.js';
-    import queryString from 'query-string';
-    import store from '../../vuex.js';
-    
+    import LogOut from '../buttons/logOut.vue'
+    import request from '../../request';
 	export default {
 		data() {
 			return {
-                nameUser: "",
-                loginUser: "",
-                roleUser: ""
+                name: '',
+                login: '',
+                role: '',
+                id : ''
 			}
 		},
 		components: {
 			ButTime,
             ButRep,
-            ButTasks
+            ButTasks,
+            LogOut
 		},
         methods: {
 
         },
         created() {
-            const user = queryString.parse(location.search);
-            this.nameUser = user.Name;
-            console.log(this.$store.state.userId);
+          const id = this.$store.getters.getId;  
+          const xhr = request('GET', `${this.$root.URL}/api/users/${id}`);
+          xhr.onload = () => {
+              if (xhr.status === 200) console.log(xhr.responseText);
+          }      
         }
 	}
 </script>
