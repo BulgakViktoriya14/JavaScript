@@ -36,9 +36,8 @@
 </template>
 
 <script>
-import request from "../../request";
 import { bus } from "../../eventBus";
-
+import getData from "../../helpers/data";
 function getCurrentTimetableID(element) {
   while (element.parentNode.getAttribute("class") != "raw")
     element = element.parentNode;
@@ -66,13 +65,8 @@ export default {
       this.items = getTimetablesWithParsedLunch(timetables);
     });
     bus.$on("updateTimetable", () => {
-        const xhr = request('GET', `${this.$root.URL}/api/timetables`, null);
-        xhr.onload = () => {
-            if (xhr.status === 200) {
-                const timetables = JSON.parse(xhr.responseText);
-                this.items = getTimetablesWithParsedLunch(timetables);
-            }
-        }
+        const {login} = this.$route.params;
+      getData("timetables", this.$root.URL, login);
     });
   },
   methods: {

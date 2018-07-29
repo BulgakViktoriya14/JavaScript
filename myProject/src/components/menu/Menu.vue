@@ -11,13 +11,13 @@
                 <nav class="menu__nav">
                     <ul class="menu__list " @click="choosePage">
                         <li class="menu__item time">
-                            <router-link tag="a" to="/WorkSpace/WorkTime" id="timetables">Work Time</router-link>
+                            <router-link tag="a" to="/WorkSpace/worktimes" id="timetables">Work Time</router-link>
                         </li>
                         <li class="menu__item reports">
-                             <router-link tag="a" to="/WorkSpace/Reports" id="reports">Reports</router-link>
+                             <router-link tag="a" to="/WorkSpace/reports" id="reports">Reports</router-link>
                         </li>
                         <li class="menu__item tasks">
-                            <router-link tag="a" to="/WorkSpace/Tasks" id="tasks">Tasks</router-link>
+                            <router-link tag="a" to="/WorkSpace/tasks" id="tasks">Tasks</router-link>
                         </li>
                     </ul>
                 </nav>
@@ -33,32 +33,26 @@
 <script>
 import ImgLogo from "../img/ImgLogo.vue";
 import { bus } from "../../eventBus";
-import request from "../../request";
-import { capitalize } from "../../helpers/format";
+import setData from "../../helpers/data";
+
+const mapOnRole = {
+  'admin' : '/WorkSpace/Admin',
+  'user' : '/WorkSpace/Users',
+  'helper' : '/WorkSpace/Users'
+};
 
 export default {
-  data() {
-    return {
-      data: [],
-      getContent: (path, arr) => {
-        const xhr = request("GET", `${this.$root.URL}/api/${path}`, null);
-        xhr.onload = function() {
-          arr = JSON.parse(xhr.responseText);
-          path = capitalize(path); //example : "timetables" -> "Timetables"
-          bus.$emit(`load${path}`, arr);
-        };
-      }
-    };
-  },
+  data() { return {} },
   components: {
     ImgLogo
   },
   methods: {
     choosePage(e) {
-      this.getContent(e.target.getAttribute("id"), this.data);
+      setData(e.target.getAttribute("id"), this.$root.URL);
     },
     goOnCabinet() {
-      window.location.href = "/WorkSpace/User";
+      const role = this.$store.getters.getRole; 
+      window.location.href = mapOnRole[role];
     }
   }
 };

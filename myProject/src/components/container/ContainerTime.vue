@@ -1,6 +1,6 @@
 <template>
 <div>
-        <div class="report__date">
+        <div class="now__date">
             <p>{{date}}</p> 
         </div>
         <div class="time_buttons" @click="changeTimeTable" >
@@ -24,7 +24,7 @@ function getValueOfParam(param, time, startLunch, endLunch) {
     startLunch: `${time}@${endLunch}`,
     endLunch: `${startLunch}@${time}`
   };
-  return map[param];
+ return map[param];
 }
 export default {
   data() {
@@ -33,7 +33,7 @@ export default {
       startLunch: null,
       endLunch: null,
       date: getDate()
-    };s
+    }
   },
   created() {
     bus.$on("takeTimetable", data => {
@@ -51,9 +51,7 @@ export default {
       xhr.onload = () => {
           if (xhr.status === 200) {
               if (parameter === 'Lunch') {
-                  const lunchTimes = time.split('@');
-                  this.startLunch = lunchTimes[0];
-                  this.endLunch = lunchTimes[1];
+                 [this.startLunch, this.endLunch] = time.split('@');
               }
               bus.$emit('updateTimetable');
             }
@@ -63,5 +61,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

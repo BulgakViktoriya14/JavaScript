@@ -83,9 +83,6 @@
 }
 
 .log_out button{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 16px 32px;

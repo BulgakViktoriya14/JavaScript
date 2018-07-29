@@ -7,20 +7,24 @@
 </template>
 
 <script>
-	import ContainerTime from '../container/ContainerTime.vue'
-	import HistoryTime from '../wrapper/HistoryTime.vue'
-
-	export default {
-		data() {
-			return {
-				title : "Work Time"
-			}
-		},
-		components: {
-			ContainerTime,
-			HistoryTime
-		}
-	}
+import ContainerTime from "../container/ContainerTime.vue";
+import HistoryTime from "../wrapper/HistoryTime.vue";
+import setData from "../../helpers/data";
+export default {
+  data() {
+    return {
+      title: "Work Time"
+    };
+  },
+  components: {
+    ContainerTime,
+    HistoryTime
+  },
+  created() {
+	const {login} = this.$route.params;
+	setData("timetables", this.$root.URL, login);
+  }
+};
 </script>
 
 <style src="../../styles/time.css"></style>

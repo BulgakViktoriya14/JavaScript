@@ -22,14 +22,14 @@ import request from "../../request";
 import swal from "sweetalert2";
 
 const mapOnStatus = {
-  200: Ok,
+  201: Ok,
   500: BadRequest
 };
 function Ok() {
   bus.$emit("updateReport");
 }
 function BadRequest() {
-	swal('Ooops...', 'You have a report on this day', 'error');
+  swal("Ooops...", "You have a report on this day", "error");
 }
 export default {
   data() {

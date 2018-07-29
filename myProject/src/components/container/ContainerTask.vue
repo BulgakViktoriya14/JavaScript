@@ -1,40 +1,69 @@
 <template>
 	<div class="container">
         <div class="task__date">
-            <h1>{{date}}</h1>          
+            <p>{{date}}</p>          
         </div>
         <div class="task__inputs">
-        	<TaskUser></TaskUser>
+        	<TaskUser @addUsersForTask="usersTask=$event"></TaskUser>
         	<div class="border"></div>
-        	<TaskTime></TaskTime>
+        	<TaskTime @addTimeForTask="period=$event"></TaskTime>
         	<div class="border"></div>
-            <TaskText></TaskText>
+            <TaskText @addTextForTask="textTask=$event"></TaskText>
            	<div class="border"></div>
-            <TaskNote></TaskNote>
+            <TaskNote @addNoteForTask="noteTask=$event"></TaskNote>
         </div>
-       <input class="task__accept" type="submit" id="send">
+       <input class="task__accept" type="submit" id="send" @click="addTask"> 
    </div>
 </template>
 
 <script>
-	import TaskText from '../textarea/TaskText.vue';
-	import TaskNote from '../textarea/TaskNote.vue';
-	import TaskUser from '../textarea/TaskUser.vue';
-	import TaskTime from '../textarea/TaskTime.vue'
-	import {getDate} from '../../helpers/date';
-	export default {
-		data() {
-			return {
-				date: getDate()
-			}
-		},
-		components: {
-			TaskText,
-			TaskNote,
-			TaskUser,
-			TaskTime
-		}
-	}
+import TaskText from "../textarea/TaskText.vue";
+import TaskNote from "../textarea/TaskNote.vue";
+import TaskUser from "../textarea/TaskUser.vue";
+import TaskTime from "../textarea/TaskTime.vue";
+import { getDate } from "../../helpers/date";
+import swal from "sweetalert2";
+import { bus } from "../../eventBus";
+import request from "../../request";
+
+const mapOnStatus = {
+  201: Ok,
+  500: BadRequest
+};
+function Ok() {
+  bus.$emit("updateTasks");
+}
+function BadRequest() {
+  swal("Ooops...", "You are not an administrator", "error");
+}
+
+export default {
+  data() {
+    return {
+      date: getDate(),
+      usersTask: [],
+      period: "",
+      textTask: "",
+      noteTask: ""
+    };
+  },
+  components: {
+    TaskText,
+    TaskNote,
+    TaskUser,
+    TaskTime
+  },
+  methods: {
+    addTask() {
+      console.log(this.usersTask, this.period, this.textTask, this.noteTask);
+	  const xhr = request("POST", `${this.$root.URL}/api/tasks`,
+	  	`Date=${this.date}&Users=${JSON.stringify(this.usersTask)}&Period=${this.period}&Description=${this.textTask}&Note=${this.noteTask}`);
+      xhr.onload = () => {
+        mapOnStatus[xhr.status]();
+      };
+    }
+  }
+};
 </script>
 
 <style>

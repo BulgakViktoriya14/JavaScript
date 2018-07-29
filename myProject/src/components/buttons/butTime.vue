@@ -8,9 +8,10 @@ export default {
   data() {
     return {};
   },
+  props: ["login"],
   methods: {
     goOnPageTime() {
-      this.$router.push("/WorkSpace/WorkTime");
+      this.$router.push(`/WorkSpace/users/${this.login}/worktimes`);
     }
   }
 };

@@ -9,7 +9,7 @@
 <script>
 import OldReports from "../wrapper/OldReports.vue";
 import ContainerReport from "../container/ContainerReport.vue";
-
+import setData from '../../helpers/data';
 export default {
   data() {
     return {
@@ -19,6 +19,10 @@ export default {
   components: {
     OldReports,
     ContainerReport
+  },
+  created() {
+	  const {login} = this.$route.params;
+	  setData("reports", this.$root.URL, login);
   },
   methods: {}
 };

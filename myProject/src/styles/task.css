@@ -2,238 +2,228 @@
 @import url(header.css);
 @import url(footer.css);
 @import url(main.css);
+p,
+input,
+textarea,
+[type="submit"],
+button {
+  font-size: 1.4rem;
+  font-family: 'Open Sans', sans-serif;
+}
 
+h1,
+h2,
+p {
+  display: block;
+  font-family: 'Open Sans';
+}
 
-  
+h2 {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 3.6rem;
+  color: #fff;
+  background: #36b871;
+}
 
+button,
+[type="submit"] {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
 
-    p, input, textarea, [type="submit"], button {
-        font-size: 1.6rem;
-        font-family: 'Open Sans', sans-serif;
-      }
-      
-      h1, h2, p {
-        display: block;
-        font-family: 'Open Sans';
-      }
-      
-      h2 {
-        display: inline-block;
-        padding: 5px 20px;
-        font-size: 3.6rem;
-        color: #fff;
-        background: #36b871;
-      }
-      
-      button, [type="submit"] {
-        font-size: 1.8rem;
-        cursor: pointer;
-      }
-      
-      .task {
-        margin-top:50px;
-      }
-      
-      .container {
-        max-width: 100%;
-        width: 100%;
-      }
-      
-      .old_tasks {
-        padding-top: 30px;
-        position: relative;
-      }
-      
-      .old_tasks::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1%;
-        height: 100%;
-        background: #36b871;
-      }
-      
-      .raw__list {
-        margin-left: 50px;
-      }
-      
-      .raw {
-        margin: 0px 0px 60px;
-      }
-      
-      .raw__date {
-        font-size: 2.4rem;
-        font-weight: bold;
-        margin-bottom: 15px;
-      }
-      
-      .raw__task {
-        display: flex;
-        justify-content: flex-start;
-        position: relative;
-        font-size: 1.6rem;
-      }
-      
-     
-      .raw__task-text::after,.raw__task-time::after,
-      .raw__task-user::after{content: "";
-        position: absolute;
-        left: 100%;
-        top: 0;
-        margin: 20px 0;
-        margin-left:20px; 
-        border-left: 1px solid #aaa;
-        height: 80%;
-      }
-      .raw__task-text,.raw__task-note,
-      .raw__task-user,.raw__task-time {
-        position: relative;
-        max-width: 50%;
-        width: 100%;
-        margin: 0 20px;
-      }
-      
-      @media only screen and (max-width: 768px) {
-        h2 {
-          font-size: 2.4rem;
-        }
-      
-        .raw__task {
-            flex-wrap: wrap;
-          }
-          
-          .raw__task::after {
-             border: none;
-          }
-          
-          .raw__task-text,
-          .raw__task-note {
-            max-width: 100%;
-            margin: 0;
-          }
-          
-          .raw__task-text::after {
-            content: "";
-            display: block;
-            width: 90%;
-            margin: 15px auto;
-            border-top: 1px solid #aaa;
-          }
-          
-        }
-      
-      .task__date {
-        margin-bottom: 15px;
-      }
-      
-      .task__date p {
-        font-size: 2.4rem;
-        font-weight: bold;
-      }
-      
-      .task__inputs {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: 20px;
-        margin-bottom: 30px;
-        justify-content: center;
-      }
-      
-      [type="text"] {
-        resize:vertical;
-          width: 100%;
-          border: 0;
-          padding: 10px 5px;
-          background: white no-repeat;
-          background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
-          /* sizes for the 2 images (default state) */
-          background-size: 0 2px, 100% 1px;
-          /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
-          background-position: 50% 100%, 50% 100%;
-      
-          /* animation solely on background-size */
-          transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-      }
-      .border{
-        margin-top: 5px;
-        margin-bottom: 5px;
-        margin-left: 15px;
-        margin-right: 15px;
-        border-left: 1px solid #aaa;
-      }
-      
-      [type="text"]:focus {
-          background-size: 100% 2px, 100% 1px;
-        outline: none;
-      }
-      
-      [name*="task"] {
-        display: inline-block;
-        max-width: 22%;
-        width: 100%;
-        
-      }
+.task {
+  margin-top: 50px;
+}
 
-      .users{
-        position: relative;
-        max-width: 22%;
-      }
+.container {
+  max-width: 100%;
+  width: 100%;
+}
 
-      .type-search{
-        font-size: 1.6rem;
-        width: 250px;
-        margin: 0px auto;
-        display: block;
-      }
-      .type-search option {
-        font-size: 1.6rem;
-      }
-      [type="submit"] {
-        width: 200px;
-        height: 50px;
-        background: #36b871;
-        border: none;
-        outline: none;
-        color: #fff;
-        
-      }
-      
-      .task__accept {
-        display: block;
-        margin-left: auto;
-      }
-      
-      #content_col { 
-        margin: 10px 5px 20px 0px;
-        padding: 5px; 
-       }
-  
+.old_tasks {
+  padding-top: 30px;
+  position: relative;
+}
 
-       .raw__task h1{
-        margin-bottom:12px;
-      }
+.old_tasks::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1%;
+  height: 100%;
+  background: #36b871;
+}
 
-      #list{
-        display: none;
-        position: absolute;
-        width:100%;
-        border:none;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 1.2em;
-        background: white;
-      }
+.raw__list {
+  margin-left: 50px;
+}
 
-      #list li{
-        border-bottom: solid 1px #36b871;
-      }
-      #list li:hover{
-        background: #36b871;
-        color:white;
-      }
+.raw {
+  margin: 0px 0px 60px;
+}
 
-      
+.raw__date {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 
-      
-      
-      
+.raw__task {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.raw__task-text::after,
+.raw__task-time::after,
+.raw__task-user::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  margin: 20px 0;
+  margin-left: 20px;
+  border-left: 1px solid #aaa;
+  height: 80%;
+}
+
+.raw__task-text,
+.raw__task-note,
+.raw__task-user,
+.raw__task-time {
+  position: relative;
+  max-width: 50%;
+  width: 100%;
+  margin: 0 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 2.4rem;
+  }
+  .raw__task {
+    flex-wrap: wrap;
+  }
+  .raw__task::after {
+    border: none;
+  }
+  .raw__task-text,
+  .raw__task-note {
+    max-width: 100%;
+    margin: 0;
+  }
+  .raw__task-text::after {
+    content: "";
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    border-top: 1px solid #aaa;
+  }
+}
+
+.task__date {
+  margin-bottom: 15px;
+}
+
+.task__date p {
+  font-size: 2.4rem;
+  font-weight: bold;
+}
+
+.task__inputs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
+
+[type="text"] {
+  resize: vertical;
+  border: 0;
+  padding: 10px 5px;
+  background: white no-repeat;
+  background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+  /* sizes for the 2 images (default state) */
+  background-size: 0 2px, 100% 1px;
+  /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+  background-position: 50% 100%, 50% 100%;
+  /* animation solely on background-size */
+  transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+.border {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  margin-right: 15px;
+  border-left: 1px solid #aaa;
+}
+
+[type="text"]:focus {
+  background-size: 100% 2px, 100% 1px;
+  outline: none;
+}
+
+[name*="task"] {
+  display: inline-block;
+  max-width: 22%;
+  width: 100%;
+}
+
+.users_task {
+  position: relative;
+  max-width: 22%;
+}
+
+.type-search {
+  width: 250px;
+  margin: 0px auto;
+  display: block;
+  font-size: 1.4rem;
+}
+
+[type="submit"] {
+  width: 200px;
+  height: 50px;
+  background: #36b871;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.task__accept {
+  display: block;
+  margin-left: auto;
+}
+
+#content_col {
+  margin: 10px 5px 20px 0px;
+  padding: 5px;
+}
+
+.raw__task h1 {
+  margin-bottom: 12px;
+}
+
+#list {
+  display: none;
+  position: absolute;
+  width: 100%;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  background: white;
+}
+
+#list li {
+  border-bottom: solid 1px #36b871;
+}
+
+#list li:hover {
+  background: #36b871;
+  color: white;
+}

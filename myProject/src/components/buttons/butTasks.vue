@@ -5,15 +5,14 @@
 </template>
 <script>
 	export default {
-	    data() {
-	      return {
-	         
-	      }
-	    },
-	    methods: {
-	    	goOnPageTasks() {
-	    		 this.$router.push("/WorkSpace/Tasks");
-	    	}
-	    }
+  data() {
+    return {};
+  },
+  props: ["login"],
+  methods: {
+    goOnPageTasks() {
+      this.$router.push(`/WorkSpace/users/${this.login}/tasks`);
     }
+  }
+};
 </script>

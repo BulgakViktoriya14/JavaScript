@@ -1,4 +1,4 @@
-module.exports = (method, url, body) => {
+module.exports = (method, url, body = null) => {
     const xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.open(method, url);
