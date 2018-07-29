@@ -11,13 +11,13 @@
                 <nav class="menu__nav">
                     <ul class="menu__list " @click="choosePage">
                         <li class="menu__item time">
-                            <router-link tag="a" to="/WorkSpace/WorkTime" id="timetables">Work Time</router-link>
+                            <router-link tag="a" to="/WorkSpace/worktimes" id="timetables">Work Time</router-link>
                         </li>
                         <li class="menu__item reports">
-                             <router-link tag="a" to="/WorkSpace/Reports" id="reports">Reports</router-link>
+                             <router-link tag="a" to="/WorkSpace/reports" id="reports">Reports</router-link>
                         </li>
                         <li class="menu__item tasks">
-                            <router-link tag="a" to="/WorkSpace/Tasks" id="tasks">Tasks</router-link>
+                            <router-link tag="a" to="/WorkSpace/tasks" id="tasks">Tasks</router-link>
                         </li>
                     </ul>
                 </nav>
@@ -34,6 +34,13 @@
 import ImgLogo from "../img/ImgLogo.vue";
 import { bus } from "../../eventBus";
 import setData from "../../helpers/data";
+
+const mapOnRole = {
+  'admin' : '/WorkSpace/Admin',
+  'user' : '/WorkSpace/Users',
+  'helper' : '/WorkSpace/Users'
+};
+
 export default {
   data() { return {} },
   components: {
@@ -44,7 +51,8 @@ export default {
       setData(e.target.getAttribute("id"), this.$root.URL);
     },
     goOnCabinet() {
-      window.location.href = "/WorkSpace/User";
+      const role = this.$store.getters.getRole; 
+      window.location.href = mapOnRole[role];
     }
   }
 };

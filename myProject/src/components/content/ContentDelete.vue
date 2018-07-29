@@ -34,11 +34,7 @@
                 }
             },
             deleteUser() {
-                const xhr = request(
-                    "DELETE",
-                    `${this.$root.URL}/api/users`,
-                    
-                );
+                const xhr = request("DELETE", `${this.$root.URL}/api/users`);
             },
             goOnPageAdmin() {
                 window.location.href = '/WorkSpace/Admin';

@@ -3,16 +3,15 @@
         <a href="">Reports</a>    </li>
 </template>
 <script>
-	export default {
-	    data() {
-	      return {
-	         
-	      }
-	    },
-	    methods: {
-	    	goOnPageReports() {
-	    		this.$router.push("/WorkSpace/Reports");
-	    	}
-	    }
+export default {
+  data() {
+    return {};
+  },
+  props: ["login"],
+  methods: {
+    goOnPageReports() {
+      this.$router.push(`/WorkSpace/users/${this.login}/reports`);
     }
+  }
+};
 </script>

@@ -35,6 +35,7 @@ import ButRep from "../buttons/butRep.vue";
 import ButTasks from "../buttons/butTasks.vue";
 import LogOut from "../buttons/logOut.vue";
 import request from "../../request";
+
 export default {
   data() {
     return {
@@ -53,8 +54,8 @@ export default {
   },
   methods: {},
   created() {
-    const id = this.$store.getters.getId;
-    const xhr = request("GET", `${this.$root.URL}/api/users/${id}`);
+    const {login} = this.$route.params;
+    const xhr = request("GET", `${this.$root.URL}/api/users/${login}`);
     xhr.onload = () => {
       if (xhr.status === 200) {
         const user = JSON.parse(xhr.responseText);

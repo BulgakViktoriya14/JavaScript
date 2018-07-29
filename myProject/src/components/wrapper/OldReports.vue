@@ -14,12 +14,11 @@
 
 <script>
 import { bus } from "../../eventBus";
-import request from "../../request";
-import { getDate } from "../../helpers/date";
+import getData from "../../helpers/data";
 export default {
   data() {
     return {
-      items: [],
+      items: []
     };
   },
   methods: {},
@@ -28,10 +27,8 @@ export default {
       this.items = arr;
     });
     bus.$on("updateReport", () => {
-      const xhr = request("GET", `${this.$root.URL}/api/reports`, null);
-      xhr.onload = function() {
-        this.items = JSON.parse(xhr.responseText);
-      };
+      const {login} = this.$route.params;
+      getData('reports', this.$root.URL, login);
     });
   }
 };

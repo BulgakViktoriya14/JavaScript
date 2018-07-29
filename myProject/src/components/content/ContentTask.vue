@@ -7,23 +7,25 @@
 </template>
 
 <script>
-	import ContainerTask from '../container/ContainerTask.vue';
-	import OldTasks from '../wrapper/OldTasks.vue';
-	import { bus } from '../../eventBus.js';
-	
-	export default {
-		data() {
-			return {
-				title : "Work Tasks"
-			}
-		},
-		components: {
-			ContainerTask,
-			OldTasks,
-		},
-		created () {
-		}
-	}
+import ContainerTask from "../container/ContainerTask.vue";
+import OldTasks from "../wrapper/OldTasks.vue";
+import setData from '../../helpers/data';
+
+export default {
+  data() {
+    return {
+      title: "Work Tasks"
+    };
+  },
+  components: {
+    ContainerTask,
+    OldTasks
+  },
+  created() {
+	  const {login} = this.$route.params;
+	  setData("tasks", this.$root.URL, login);
+  }
+};
 </script>
 
 <style src="../../styles/task.css"></style>

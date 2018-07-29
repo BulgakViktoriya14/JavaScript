@@ -21,7 +21,7 @@ export default {
     HistoryTime
   },
   created() {
-	const login = this.$store.getters.getLogin;
+	const {login} = this.$route.params;
 	setData("timetables", this.$root.URL, login);
   }
 };
