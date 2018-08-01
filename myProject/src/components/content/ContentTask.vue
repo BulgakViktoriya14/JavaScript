@@ -10,7 +10,7 @@
 import ContainerTask from "../container/ContainerTask.vue";
 import OldTasks from "../wrapper/OldTasks.vue";
 import setData from '../../helpers/data';
-
+import bus from '../../eventBus';
 export default {
   data() {
     return {
@@ -23,7 +23,8 @@ export default {
   },
   created() {
 	  const {login} = this.$route.params;
-	  setData("tasks", this.$root.URL, login);
+	  setData('tasks', this.$root.URL, login);
+	  setData('users', this.$root.URL);
   }
 };
 </script>

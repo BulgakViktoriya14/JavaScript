@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" v-if="flagTask">
         <div class="task__date">
             <p>{{date}}</p>          
         </div>
@@ -44,7 +44,8 @@ export default {
       usersTask: [],
       period: "",
       textTask: "",
-      noteTask: ""
+      noteTask: "",
+      flagTask: false
     };
   },
   components: {
@@ -58,10 +59,13 @@ export default {
       console.log(this.usersTask, this.period, this.textTask, this.noteTask);
 	  const xhr = request("POST", `${this.$root.URL}/api/tasks`,
 	  	`Date=${this.date}&Users=${JSON.stringify(this.usersTask)}&Period=${this.period}&Description=${this.textTask}&Note=${this.noteTask}`);
-      xhr.onload = () => {
-        mapOnStatus[xhr.status]();
-      };
+      xhr.onload = () => mapOnStatus[xhr.status]();
     }
+  },
+  created() {
+      if(localStorage.getItem('role') == 'admin') {
+        this.flagTask = window.location.pathname == "/WorkSpace/tasks";
+      }
   }
 };
 </script>

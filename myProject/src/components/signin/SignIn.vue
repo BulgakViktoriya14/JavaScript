@@ -21,21 +21,15 @@ import Password from "../input/Password.vue";
 import { bus } from "../../eventBus";
 import request from "../../request";
 import swal from "sweetalert2";
+import redirect from '../../helpers/redirect';
 
 const mapOnStatus = {
   200: Ok,
   400: BadRequest
 };
-const mapOnRole = {
-  admin: "/WorkSpace/Admin",
-  user: "/WorkSpace/Users/@",
-  helper: "/WorkSpace/Users/@"
-};
-function Ok(role, store, login) {
-  store.commit("setRole", role);
-  let URL = mapOnRole[role];
-  if (URL.indexOf("@") > -1) URL = URL.replace('@', login);  
-  window.location.href = URL;
+function Ok(router) {
+  debugger;
+  redirect(router);
 }
 function BadRequest() {
   swal({ type: "error", title: "Oops...", text: "Bad credentials!" });
@@ -51,6 +45,11 @@ export default {
     Login,
     Password
   },
+  beforeCreate() {
+    const role = localStorage.getItem('role');
+    const login = localStorage.getItem('login');
+    if (role && login) Ok(this.$router);
+  },
   methods: {
     connect() {
       const xhr = request(
@@ -60,7 +59,10 @@ export default {
       );
       xhr.onload = () => {
         const user = JSON.parse(xhr.responseText);
-        mapOnStatus[xhr.status](user.Role, this.$store, user.Login);
+        localStorage.setItem("login", user.Login);
+        localStorage.setItem("role", user.Role);
+        localStorage.setItem('name', user.Name);
+        mapOnStatus[xhr.status](this.$router);
       };
     }
   }

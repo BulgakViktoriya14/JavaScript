@@ -11,7 +11,10 @@ export default {
     LogOut() {
       const xhr = request("POST", `${this.$root.URL}/logout`, null);
       xhr.onload = () => {
-        if (xhr.status === 200) this.$router.push("/SignIn");
+		if (xhr.status === 200) {
+			localStorage.clear();
+			this.$router.push("/SignIn");
+		}
       };
     }
   }

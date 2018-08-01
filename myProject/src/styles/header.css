@@ -1,78 +1,70 @@
+.top_menu h2 {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 3.6rem;
+  color: #fff;
+  background: #36b871;
+}
 
+.top_menu {
+  position: fixed;
+  min-height: 60px;
+  min-width: 600px;
+  width: 100%;
+  background: #36b871;
+  margin: 0;
+  top: 0;
+  z-index: 2;
+}
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding-left: 100px;
+}
 
- .top_menu h2 {
-    display: inline-block;
-    padding: 5px 20px;
-    font-size: 3.6rem;
-    color: #fff;
-    background: #36b871;
-  }
+.header__user {
+  padding-top: 5px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  margin-right: 50px;
+}
 
+.header__user img {
+  width: 100%;
+}
+
+.header h1 {
+  color: white;
+}
+
+.top_menu .name {
+  margin-left: 225px;
+}
+
+@media screen and (max-width:740px) {
   .top_menu {
-    position: fixed;
-    min-height: 60px;
-    min-width: 600px;
-    width: 100%;
-    background: #36b871;
-    margin: 0;
-    top:0;
-    z-index: 2;
+    height: 40px;
+    min-height: 40px;
+    min-width: 100%;
   }
-
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding-left: 100px;
+    padding-left: 45px;
   }
-
-  .header__user {
-    padding-top: 5px;
-    width: 50px;
-    border-radius: 50%; 
-    overflow: hidden;
-    cursor: pointer;
-    margin-right: 50px;
-  }
-  
-  .header__user img {
+  .header .name {
     width: 100%;
+    margin: 0;
   }
-
-  .header a{
-    color: white;
+  .name h1 {
+    text-align: center;
   }
-
-  .top_menu .name{
-    margin-left: 225px;
+  .header__user {
+    padding-top: 0;
+    width: 40px;
+    margin-right: 10px;
   }
-
-  @media screen and (max-width:740px){
-    .top_menu{
-      height: 40px;
-      min-height: 40px;
-      min-width: 100%;
-    }
-
-    .header{
-      padding-left: 45px;
-    }
-
-    .header .name{
-      width:100%;
-      margin:0;
-    }
-
-    .name h1{
-      text-align: center;
-    }
-
-    .header__user{
-      padding-top: 0;
-      width: 40px;
-      margin-right: 10px;
-    }
-
-  }
+}

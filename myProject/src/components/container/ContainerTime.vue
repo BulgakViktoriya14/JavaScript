@@ -1,5 +1,5 @@
 <template>
-<div>
+  <div class="container" v-if="flagTime">
         <div class="now__date">
             <p>{{date}}</p> 
         </div>
@@ -9,7 +9,7 @@
             <button id="endLunch">End lunch</button>
             <button id="Out">Gone</button>
         </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ function getValueOfParam(param, time, startLunch, endLunch) {
     startLunch: `${time}@${endLunch}`,
     endLunch: `${startLunch}@${time}`
   };
- return map[param];
+  return map[param];
 }
 export default {
   data() {
@@ -32,8 +32,9 @@ export default {
       ID: null,
       startLunch: null,
       endLunch: null,
-      date: getDate()
-    }
+      date: getDate(),
+      flagTime: false
+    };
   },
   created() {
     bus.$on("takeTimetable", data => {
@@ -41,21 +42,32 @@ export default {
       this.startLunch = data.StartLunch || "";
       this.endLunch = data.EndLunch || "";
     });
+    const role = localStorage.getItem("role");
+    if (role === "admin" || role === "helper") this.flagTime = true;
   },
   methods: {
     changeTimeTable(e) {
       let parameter = e.target.getAttribute("id");
-      const time = getValueOfParam(parameter, getTime(), this.startLunch, this.endLunch);
+      const time = getValueOfParam(
+        parameter,
+        getTime(),
+        this.startLunch,
+        this.endLunch
+      );
       if (parameter.indexOf("Lunch") > -1) parameter = "Lunch";
-      const xhr = request("PUT",`${this.$root.URL}/api/timetables/${this.ID}`, `${parameter}=${time}`);
+      const xhr = request(
+        "PUT",
+        `${this.$root.URL}/api/timetables/${this.ID}`,
+        `${parameter}=${time}`
+      );
       xhr.onload = () => {
-          if (xhr.status === 200) {
-              if (parameter === 'Lunch') {
-                 [this.startLunch, this.endLunch] = time.split('@');
-              }
-              bus.$emit('updateTimetable');
-            }
-      }
+        if (xhr.status === 200) {
+          if (parameter === "Lunch") {
+            [this.startLunch, this.endLunch] = time.split("@");
+          }
+          bus.$emit("updateTimetable");
+        }
+      };
     }
   }
 };

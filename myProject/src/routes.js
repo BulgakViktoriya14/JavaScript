@@ -7,6 +7,7 @@ import Admin from './components/content/ContentAdmin.vue';
 import User from './components/content/ContentUser.vue';
 import CheckIn from './components/content/ContentCheckIn.vue';
 import Delete from './components/content/ContentDelete.vue';
+import NotFound from './components/content/ContentNotFound.vue';
 
 export const routes = [
 	{path: '/', component: SignIn},
@@ -22,5 +23,6 @@ export const routes = [
 			{path: 'users/:login', component: User},
 			{path: 'CheckIn', component: CheckIn},
 			{path: 'Delete', component: Delete},
+			{path: 'NotFound', component: NotFound}
 	]},
 ]

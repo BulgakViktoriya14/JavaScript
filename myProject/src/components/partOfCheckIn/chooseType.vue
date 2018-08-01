@@ -13,10 +13,18 @@
 <script>
 import { bus } from "../../eventBus";
 export default {
-  data() {},
+  data() {
+    return {
+      role: "user"
+    };
+  },
+  created() {
+    bus.$emit("roleChange", this.role);
+  },
   methods: {
     roleChange(e) {
-      bus.$emit("roleChange", e.target.value);
+      this.role = e.target.value;
+      bus.$emit("roleChange", this.role);
     }
   }
 };

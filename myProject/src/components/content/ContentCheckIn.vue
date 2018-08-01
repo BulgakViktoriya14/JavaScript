@@ -27,6 +27,7 @@
 	import LoginUser from '../partOfCheckIn/Login.vue';
 	import PasswordUser from '../partOfCheckIn/Password.vue';
 	import {bus} from '../../eventBus';
+	import swal from 'sweetalert2';
 	import request from '../../request';
 	import ChooseType from '../partOfCheckIn/chooseType.vue';
 	export default {
@@ -60,7 +61,8 @@
 			registrate() {
 				const xhr = request('POST', `${this.$root.URL}/api/users`, `Login=${this.login}&Name=${this.surname} ${this.name}&Email=${this.email}&Password=${this.password}&Role=${this.role}`);
 				xhr.onload = () => {
-					if (xhr.status === 200) window.location.href = '/WorkSpace/Admin';
+					if (xhr.status === 201) this.returnToAdminPage();
+					else swal('Oooops...', 'Cannot create user', 'error');
 				}
 			},
 			returnToAdminPage() {

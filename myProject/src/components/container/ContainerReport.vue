@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="container" v-if="flagReport">
         <div class="report__date">
             <p>{{date}}</p>      
         </div>
@@ -36,7 +36,8 @@ export default {
     return {
       date: getDate(),
       textReport: "",
-      noteReport: ""
+      noteReport: "",
+      flagReport: true
     };
   },
   components: {
@@ -45,15 +46,13 @@ export default {
   },
   methods: {
     addReport(valText) {
-      const xhr = request(
-        "POST",
-        `${this.$root.URL}/api/reports`,
-        `Date=${this.date}&MainText=${this.textReport}&Note=${this.noteReport}`
-      );
-      xhr.onload = () => {
-        mapOnStatus[xhr.status]();
-      };
+      const xhr = request("POST", `${this.$root.URL}/api/reports`, `Date=${this.date}&MainText=${this.textReport}&Note=${this.noteReport}`);
+      xhr.onload = () => mapOnStatus[xhr.status]();
     }
+  },
+  created() {
+	const login = localStorage.getItem('login');
+	this.flagReport = login === this.$route.params.login || window.location.pathname === '/WorkSpace/reports';
   }
 };
 </script>

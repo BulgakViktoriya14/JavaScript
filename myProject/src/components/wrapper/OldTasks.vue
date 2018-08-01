@@ -5,7 +5,7 @@
                     <div class="raw__task">
                         <div class="raw__task-user">
                             <h1>User</h1>
-                            <p v-for="us of task.Users">{{us}}</p>
+                            <p v-for="us of task.Users" :key="us">{{us}}</p>
                         </div>
                         <div class="raw__task-time">
                             <h1>Time</h1>

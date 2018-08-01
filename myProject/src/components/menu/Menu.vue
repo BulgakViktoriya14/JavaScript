@@ -7,7 +7,7 @@
         <div class="left">
             <aside class="menu off-canvas" id="menu_col">
                 <img class="close_button" src="../../img/close.png">
-                <a href="#" class="logo"><img src="../../img/logo.png" ></a>
+                <a href="" class="logo"><img src="../../img/logo.png" ></a>
                 <nav class="menu__nav">
                     <ul class="menu__list " @click="choosePage">
                         <li class="menu__item time">
@@ -22,7 +22,7 @@
                     </ul>
                 </nav>
                 <div class=menu_footer>
-                    <a href="#" class="user_image"  @click="goOnCabinet"><img  src="../../img/CUser.png"></a>
+                    <a href="" class="user_image"  @click="goOnCabinet"><img  src="../../img/CUser.png"></a>
                      <h1>Personal cabinet</h1>
                  </div>
             </aside>
@@ -34,15 +34,11 @@
 import ImgLogo from "../img/ImgLogo.vue";
 import { bus } from "../../eventBus";
 import setData from "../../helpers/data";
-
-const mapOnRole = {
-  'admin' : '/WorkSpace/Admin',
-  'user' : '/WorkSpace/Users',
-  'helper' : '/WorkSpace/Users'
-};
-
+import redirect from "../../helpers/redirect";
 export default {
-  data() { return {} },
+  data() {
+    return {};
+  },
   components: {
     ImgLogo
   },
@@ -51,8 +47,7 @@ export default {
       setData(e.target.getAttribute("id"), this.$root.URL);
     },
     goOnCabinet() {
-      const role = this.$store.getters.getRole; 
-      window.location.href = mapOnRole[role];
+      redirect(this.$router);
     }
   }
 };

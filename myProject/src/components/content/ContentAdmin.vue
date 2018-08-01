@@ -2,7 +2,7 @@
         <div id="content_col">
             <div class="person">
                 <img class="avatar" src="../../img/avatar.jpg">
-                <h1>Surname Name</h1>
+                <h1>{{this.name}}</h1>
                 <h3>Administrator</h3>
 			</div>
 			<div class="users">
@@ -24,14 +24,15 @@
 <script>
 import AddUser from "../buttons/addUser.vue";
 import DeleteUser from "../buttons/deleteUser.vue";
-import request from "../../request";
 import GetListUsers from "../buttons/chooseUsers.vue";
-import { bus } from "../../eventBus.js";
+import { bus } from "../../eventBus";
+import request from "../../request";
 import LogOut from "../buttons/logOut.vue";
 
 export default {
   data() {
     return {
+      name: "",
       listUsers: []
     };
   },
@@ -41,17 +42,22 @@ export default {
     GetListUsers,
     LogOut
   },
+  beforeCreate() {
+    if (localStorage.getItem("role") !== "admin")
+      this.$router.push("/WorkSpace/NotFound");
+  },
   created() {
     bus.$on("loadUsers", users => {
-        this.listUsers = users;
+      this.listUsers = users;
     });
+    this.name = localStorage.getItem("name");
   },
   methods: {
     chooseUser(e) {
       const currentUser = e.target;
       this.$store.commit("setName", currentUser.innerText);
-      this.$store.commit("setId", currentUser.getAttribute('userID'));
-      const login = currentUser.getAttribute('login');
+      this.$store.commit("setId", currentUser.getAttribute("userID"));
+      const login = currentUser.getAttribute("login");
       this.$router.push(`/WorkSpace/users/${login}`);
     }
   }

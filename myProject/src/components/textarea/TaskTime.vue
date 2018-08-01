@@ -3,19 +3,19 @@
 </template>
 
 <script>
-	export default {
-	data() {
-		return {
-			valTaskTime:""
-		}
-	},
-	methods: {
-		writeTimeForTask(event) {
-			this.valTaskTime = event.target.value;
-			this.$emit("addTimeForTask",this.valTaskTime);
-		}
-	}
-}
+export default {
+  data() {
+    return {
+      valTaskTime: ""
+    };
+  },
+  methods: {
+    writeTimeForTask(event) {
+      this.valTaskTime = event.target.value;
+      this.$emit("addTimeForTask", this.valTaskTime);
+    }
+  }
+};
 </script>
 
 <style>

@@ -10,7 +10,7 @@
                     <p>{{email}}</p>
                 </div>
                 <div class="log_out">
-                    <LogOut></LogOut>
+                     <LogOut v-if="flagLogOut"></LogOut> 
                 </div>
             </div>
             <div class="admin_view">
@@ -43,7 +43,8 @@ export default {
       login: "",
       role: "",
       id: "",
-      email : ""
+      email: "",
+      flagLogOut: false
     };
   },
   components: {
@@ -53,8 +54,13 @@ export default {
     LogOut
   },
   methods: {},
+  beforeCreate() {
+    const loginFromLocalStorage = localStorage.getItem("login");
+    const { login } = this.$route.params;
+    this.flagLogOut = loginFromLocalStorage === login;
+  },
   created() {
-    const {login} = this.$route.params;
+    const { login } = this.$route.params;
     const xhr = request("GET", `${this.$root.URL}/api/users/${login}`);
     xhr.onload = () => {
       if (xhr.status === 200) {
