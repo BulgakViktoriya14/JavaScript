@@ -1,0 +1,220 @@
+@import url(left-menu.css);
+@import url(header.css);
+@import url(footer.css);
+@import url(main.css);
+p,
+input,
+textarea,
+[type="submit"],
+button {
+  font-size: 1.6rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+p {
+  display: block;
+  font-family: 'Open Sans';
+}
+
+h2 {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 3.6rem;
+  color: #fff;
+  background: #36b871;
+}
+
+button,
+[type="submit"] {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 2px solid #36b871;
+}
+
+button:hover {
+  background-color: #36b871;
+  color: white;
+}
+
+.now__date {
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.now__date p {
+  font-size: 2.4rem;
+  font-weight: bold;
+  display: inline;
+}
+
+.time_buttons {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.time_buttons button {
+  margin-left: 30px;
+}
+
+.timetable {
+  padding-top: 30px;
+  position: relative;
+}
+
+.timetable::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1%;
+  height: 100%;
+  background: #36b871;
+}
+
+.raw__list {
+  margin-left: 50px;
+}
+
+.raw {
+  margin: 0px 0px 60px;
+}
+
+.raw__date {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.times {
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
+  width: 200px;
+}
+
+.raw__time {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+.time_header {
+  text-align: center;
+  height: 50px;
+  width: 100%;
+  background: #36b871;
+}
+
+.time_header p {
+  white-space: nowrap;
+  font-family: 'Open Sans';
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 10px;
+}
+
+.raw__time-text {
+  font-size: 1.3em;
+  margin-top: 20px;
+}
+
+.time_buttons button {
+  height: 70px;
+  width: 250px;
+  font-size: 2.0em;
+}
+
+.now__date button {
+  height: 50px;
+  width: 220px;
+  font-size: 2.0em;
+  float: right;
+  outline: none;
+  display: inline;
+  margin-top: 0;
+  margin-left: 15px;
+}
+
+.input {
+  margin-right: 30px;
+}
+
+.input h1 {
+  margin-bottom: 10px;
+}
+
+[type="submit"] {
+  width: 200px;
+  height: 50px;
+  background: #36b871;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+.task__accept {
+  display: block;
+  margin-left: auto;
+  margin-top: 40px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input {
+  resize: vertical;
+  border: 0;
+  background: white no-repeat;
+  background-image: linear-gradient(to bottom, #1abc9c, #1abc9c), linear-gradient(to bottom, silver, silver);
+  /* sizes for the 2 images (default state) */
+  background-size: 0 2px, 100% 1px;
+  /* positions for the 2 images. Change both "50%" to "0%" or "100%" and tri again */
+  background-position: 50% 100%, 50% 100%;
+  /* animation solely on background-size */
+  transition: background-size 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+}
+
+input:focus {
+  background-size: 100% 2px, 100% 1px;
+  outline: none;
+}
+
+.raw:hover {
+  background: rgba(0, 0, 0, 0.2)
+}
+
+.raw {
+  transition: background-color 0.3s ease-out;
+}
