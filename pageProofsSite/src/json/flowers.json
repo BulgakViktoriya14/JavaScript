@@ -1,0 +1,14 @@
+[
+	{
+		"name":"Двулетние",
+		"img":"../../image/view/flowers/twoyears.jpg"
+	},
+   	{
+   		"name":"Многолетние",
+   		"img":"../../image/view/flowers/perennial.jpg"
+   	},
+ 	{
+ 		"name":"Однолетние",
+ 		"img":"../../image/view/flowers/oneyear.jpg"
+ 	}
+]
